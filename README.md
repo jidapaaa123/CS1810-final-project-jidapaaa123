@@ -19,15 +19,15 @@ I'm making a ***recipe tracker***, which can help me track, well, recipes. I can
 ### 2) Week of 4/13
 > 2.1) Page 2: user can create an "instance" of a recipe draft. A unique ID is generated for it.  
 > 2.2) Page 2: user may click on a recipe draft card to edit its contents  
-> 2.3) Page 2: user may "finish" the draft once all requirements are met. Once finished, the user is brought back to the main **Pending Recipes** page, and that recipe gets sent to the **Recipes Collection** (in memory, it won't render there yet).
+> 2.3) Page 2: user may "finish" the draft once all requirements are met. Once finished, the user is brought back to the main **Pending Recipes** page, and that recipe gets sent to the **Recipes Collection** (in memory, it won't render there yet).  
 > 2.4) Recipe cards have the same design for both Pending and Complete. But the "Cook!" button will be disabled for Pending recipes.  
 ### 3) Week of 4/20
 > 3.1) Page 3: filters recipes based on input. Has pagination. User may enter a page number to skip to  
 > 3.2) Page 3: can send a recipe back to the **Pending Recipes** (for editing/removing)  
-> 3.3) Page 3: sliding side panel to see the basket
-> 3.4) Page 3: can keep track of how many times a recipe has been "Cooked!"
-> 3.5) Page 4: renders the top dishes by times-cooked table
-> 3.6) Page 3: each recipe card can redirect user to the right full-recipe page via **query string**
+> 3.3) Page 3: sliding side panel to see the basket  
+> 3.4) Page 3: can keep track of how many times a recipe has been "Cooked!"  
+> 3.5) Page 4: renders the top dishes by times-cooked table  
+> 3.6) Page 3: each recipe card can redirect user to the right full-recipe page via **query string**  
 ### 4) Week of 4/27  
 > 4.1) Page 1: user can enter ingredient. Will not allow duplicates (unable to distinguish singular vs. plural nouns, but will ask the user to only use singular versions)  
 > 4.2) Page 1: user drag-and-drop ingredients into cart  
