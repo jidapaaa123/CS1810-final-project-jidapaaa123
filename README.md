@@ -49,10 +49,10 @@ I'm making a ***recipe tracker***, which can help me track, well, recipes. I can
 > hover: buttons like in 2.3), 3.2), 3.4)  
 > nth child: zebra-stripes on 3.5)  
 
-### Javascript Mastery
-> map/filter: 3.1)
-> DOM manipulation: any rendering involved
-> event listeners: buttons like in 2.3), 3.2), 3.4), or forms like in 2.1)
+### Javascript Mastery  
+> map/filter: 3.1)  
+> DOM manipulation: any rendering involved  
+> event listeners: buttons like in 2.3), 3.2), 3.4), or forms like in 2.1)  
 > multiple JS files & code organization: domain, ui, svc (may separate ui files for each page) **tentative**  
 > async await and promises, network requests/ call API: via using external API (if I can't find a good recipe API to use, I might just use PokeAPI for the user to pick a profile picture, or something) **tentative**  
 > query string: 3.6)  
