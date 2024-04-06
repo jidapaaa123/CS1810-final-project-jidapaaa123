@@ -15,8 +15,8 @@ I'm making a ***recipe tracker***, which can help me track, well, recipes. I can
 ## Project Plan
 ### 1) Week of 4/6  
 > 1.1) Design layouts of Page 1, 2, 3, 4, and full Recipe page. Share a main layout  
-> 1.2) Do placeholder styling for those 4 pages
-> 1.3) Get started on Page 2's functionality
+> 1.2) Do placeholder styling for those 4 pages  
+> 1.3) Get started on Page 2's functionality  
 > 1.4) Structure data to maybe prepare for an account-based system via my own API later  
 ### 2) Week of 4/13
 > 2.1) Page 2: user can create an "instance" of a recipe draft. A unique ID is generated for it.  
