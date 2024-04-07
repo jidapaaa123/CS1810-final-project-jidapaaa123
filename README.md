@@ -10,7 +10,9 @@ I'm making a ***recipe tracker***, which can help me track, well, recipes. I can
 **Page 3: Recipes Collection**: This is where the search algorithm searches for recipes based on user input (by ingredient OR by name). It will filter by ingredients the user has in their cart, and whether they allow substitutes and recipes whose optional ingredients are missing from the cart. The recipe cards' recipe titles will be a link to the **full page of the recipe**, which will be formatted similar to recipe websites we can already find online (but way, way simpler and without a 3-page backstory), and uses **query strings** to render the appropriate recipe. Substitutes will be listed as (Substitutes: item1 / item 2 / item 3...). The side panel of the **Recipes Collection** page will also be a sliding side panel to see what you've got currently in your cart. ~~The user can press "Cook!" on a recipe to note that they made it (this is so I can incorporate a table in somehow)~~  
 
 ~~**Page 4: Stats**: Where the user can see dishes they've cooked the most. (Bonus if I could do it: make this stat include amount of times other people also cooked their recipe)~~  
-**Page 4: Import Recipes** from an external API. Will render recipe cards based on user search, then the user may pick which ones to send to **Pending Recipes** (where they can make it their own)
+**Page 4: Import Recipes** from an external API. Will render recipe cards based on user search, then the user may pick which ones to send to **Pending Recipes** (where they can make it their own)  
+
+**Page 5: Home** explanation for each page
 
 ## Project Plan
 ### 1) Week of 4/6  
@@ -21,10 +23,10 @@ I'm making a ***recipe tracker***, which can help me track, well, recipes. I can
 ### 2) Week of 4/13
 > 2.1) Page 2: user can create an "instance" of a recipe draft. A unique ID is generated for it.  
 > 2.2) Page 2: user may click on a recipe draft card to edit its contents  
-> 2.3) Page 2: user may "finish" the draft once all requirements are met. Once finished, the **full recipe page** turns into the non-Pending version, and that recipe gets sent to the **Recipes Collection** (in memory, it won't render there yet unless searched).  
+> 2.3) Page 2: user may "finish" the draft once all requirements are met. User may delete the draft. Once finished, the **full recipe page** turns into the non-Pending version, and that recipe gets sent to the **Recipes Collection** (in memory, it won't render there yet unless searched).  
 > 2.4) Recipe cards have the same design for both Pending and Complete.  
-> 2.5) Page 4: render recipes from external API according to user input
-> 2.6) Page 4: user can "send to **Pending Recipes**" a recipe
+> 2.5) Page 4: render recipes from external API according to user input  
+> 2.6) Page 4: user can "send to **Recipes Collection**" a recipe  
 ### 3) Week of 4/20
 > 3.1) Page 3: filters recipes based on input. Has pagination. User may enter a page number to skip to  
 > 3.2) Page 3: can send a recipe back to the **Pending Recipes** (for editing/removing)  
