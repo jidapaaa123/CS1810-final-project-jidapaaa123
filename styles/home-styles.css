@@ -1,10 +1,78 @@
 :root {
-
+    --subheading-color: rgba(32, 16, 0, 0.678);
+    --card-border: rgb(73, 0, 0);
+    --card-background: rgba(228, 178, 132, 0.63);
+    --card-title-background: rgb(172, 62, 34);
+    --card-title-text: rgb(73, 0, 0);
+    --emphasis-color: rgb(131, 0, 0);
+    --keyword-color: rgb(34, 14, 104);
 }
 
 body {
     display: flex;
     flex-direction: column;
 
+    main#main-content {
+        padding: 3em;
+        color: var(--card-title-text);
 
+        #heading, #purpose-subheading {
+            text-align: center;
+        }
+
+        #purpose-subheading {
+            color: var(--subheading-color);
+        }
+
+        #cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+                a.link-card {
+                    display: flex;
+                    flex-direction: column;
+
+                    border-style: solid;
+                    border-color: var(--card-border);
+                    border-radius: 2em;
+
+                    background-color: var(--card-background);
+
+                    width: 20em;
+                    height: 25em;
+                    margin: 0 1.7em;
+
+                    color: inherit;
+                    text-decoration: none;
+
+                    div.card-title {
+                        background-color: var(--card-title-background);
+                        flex: 2;
+
+                        font-weight: bold;
+                        font-size: large;
+                        text-align: center;
+                        align-content: center;
+                        color: var(--card-title-text);
+
+                        border-top-left-radius: 1.7em;
+                        border-top-right-radius: 1.7em;
+                    }
+
+                    div.card-text {
+                        flex: 5;
+                        padding: 2em;
+
+                        span.emphasize {
+                            color: var(--emphasis-color);
+                        }
+
+                        span.keyword {
+                            color: var(--keyword-color);
+                        }
+                    }
+                }
+        }
+    }
 }
