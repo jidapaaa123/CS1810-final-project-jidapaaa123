@@ -1,0 +1,76 @@
+:root {
+  --card-background: #f0c8c0;
+  --border-color: rgb(150, 0, 0);
+  --text-color: #881111;
+  --button-background: #ac472e;
+  --hover-button-background: #491e13;
+  --input-background: rgb(255, 245, 245);
+  --input-border-color: rgb(255, 255, 255);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  color: var(--text-color);
+
+  font-family: "Kanit";
+
+  div#log-in-prompt {
+    display: flex;
+    flex-direction: column;
+    height: 35%;
+
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 3em;
+
+    border-style: solid;
+    border-radius: 3em;
+    border-color: var(--border-color);
+
+    background-color: var(--card-background);
+
+    /* margin: auto; */
+    div#title {
+      font-size: xxx-large;
+      text-align: center;
+      text-decoration: underline;
+    }
+
+    form#form {
+      display: flex;
+      flex-direction: column;
+
+      padding-top: 2em;
+
+      input {
+        margin-bottom: 1em;
+        background-color: var(--input-background);
+        border-radius: 0.5em;
+        border-color: var(--input-border-color);
+      }
+    }
+
+    div#buttons-container {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        width: fit-content;
+        font-family: inherit;
+        color: var(--input-border-color);
+
+        background-color: var(--button-background);
+        border-radius: 0.5em;
+        border-color: var(--input-border-color);
+      }
+
+      button:hover {
+        cursor: pointer;
+        background-color: var(--hover-button-background);
+      }
+    }
+  }
+}

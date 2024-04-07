@@ -60,7 +60,7 @@ I'm making a ***recipe tracker***, which can help me track, well, recipes. I can
 > multiple JS files & code organization: domain, ui, svc (may separate ui files for each page) **tentative**  
 > async await and promises, network requests/ call API: via using external API (if I can't find a good recipe API to use, I might just use PokeAPI for the user to pick a profile picture, or something) **tentative**  
 > query string: 3.6)  
-> localStorage: for persistence? Or 4.2) **tentative**  
+> localStorage: for persistence? Or Page 4's results. Or 4.2) **tentative**  
 
 ### Functional Requirements  
 > multiple pages: see above  
