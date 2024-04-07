@@ -1,7 +1,46 @@
 :root {
-    --main-background: #965140;
+  --main-background: #965140;
+  --nav-bar-background: rgb(36, 10, 10);
+  --nav-bar-text: rgb(255, 238, 238);
 }
 
 body {
-    background-color: var(--main-background);
+  background-color: var(--main-background);
+  height: 100vh;
+  margin: 0;
+  font-family: "Kanit";
+
+  nav#main-navigation {
+    display: flex;
+    justify-content: space-between;
+
+    font-weight: bold;
+    text-decoration: underline;
+
+    background-color: var(--nav-bar-background);
+    height: 5em;
+    padding: 0 4em;
+
+    #home-link-container, #other-links-container {
+        height: fit-content;
+        margin: auto 0;
+    }
+
+    #other-links-container {
+        display: flex;
+        
+        .nav-link {
+            margin-right: 4em;
+        }
+
+        .nav-link:nth-child(4) {
+            margin-right: 0;
+        }
+    }
+
+  }
+}
+
+.nav-link {
+    color: var(--nav-bar-text);
 }
