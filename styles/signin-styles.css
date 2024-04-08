@@ -6,6 +6,9 @@
   --hover-button-background: #491e13;
   --input-background: rgb(255, 245, 245);
   --input-border-color: rgb(255, 255, 255);
+  --disabled-button: rgb(105, 105, 105);
+  --disabled-button-text: rgb(119, 119, 119);
+  --disabled-button-border: rgb(160, 160, 160);
 }
 
 body {
@@ -70,9 +73,9 @@ body {
       }
 
       button.disabled {
-        background-color: rgb(105, 105, 105);
-        color: rgb(119, 119, 119);
-        border-color: rgb(160, 160, 160);
+        background-color: var(--disabled-button);
+        color: var(--disabled-button-text);
+        border-color: var(--disabled-button-border);
       }
 
       button.disabled:hover {

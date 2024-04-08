@@ -33,7 +33,28 @@
     </nav>
 
     <main id="main-content">
+        <section id="search-container">
+            <form id="search-form">
+                <label for="ingredient-input">New Ingredient: </label>
+                <input id="ingredient-input" type="text" />
+                <input id="add-button" type="submit" value="Add"/>
+            </form>
+        </section>
 
+        <aside id="description">Ingredients in "Basket" are what will filter in the search in Recipes Collection</aside>
+    
+        <section id="ingredients-area">
+            <div id="pantry">
+                <div class="ingredient-card">Salt</div>
+                <div class="ingredient-card">Pepper</div>
+                <div class="ingredient-card">Milk</div>
+            </div>
+
+            <div id="basket">
+                <div class="ingredient-card">Milk</div>
+                <div class="ingredient-card">Pepper</div>
+            </div>
+        </section>
     </main>
 </body>
 

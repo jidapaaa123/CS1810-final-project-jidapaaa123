@@ -3,6 +3,7 @@
   --nav-bar-background: rgb(36, 10, 10);
   --nav-bar-text: rgb(255, 238, 238);
   --current-page-link-color: rgb(255, 107, 107);
+  --nav-bar-shadow: black;
 }
 
 body {
@@ -19,6 +20,7 @@ body {
     text-decoration: underline;
 
     background-color: var(--nav-bar-background);
+    box-shadow: 0 0 1em var(--nav-bar-shadow);
     height: 5em;
     padding: 0 4em;
 
