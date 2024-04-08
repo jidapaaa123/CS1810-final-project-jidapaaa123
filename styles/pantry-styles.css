@@ -1,0 +1,62 @@
+:root {
+
+}
+
+main#main-content {
+    display: flex;
+    flex-direction: column;
+    margin: 3em 0;
+    
+    section, aside {
+        align-self: center;
+    }
+
+    section#ingredients-area {
+        display: flex;
+        flex-direction: row;
+
+        div#pantry, div#basket {
+            padding: 0.7em;
+            margin: 0 4em;
+
+            border-style: solid;
+            border-radius: 0.5em;
+
+            min-width: 20em;
+            min-height: 30em;
+            max-height: 30em;
+
+            overflow-y: auto;
+
+            .section-name {
+                text-align: center;
+                text-decoration: underline;
+                font-style: italic;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.ingredient-card {
+    display: flex;
+
+    border-style: solid;
+    border-radius: 0.5em;
+
+    padding: 0.3em;
+    margin: 0.5em 0;
+
+    .ingredient-name {
+        flex: 5;
+        margin: 0 0.2em;
+    }
+
+    .remove-button {
+        flex: 1;
+        margin: 0 0.2em;
+    border-radius: 0.5em;
+        
+        font-family: inherit;
+    }
+}
