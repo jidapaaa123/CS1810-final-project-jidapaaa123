@@ -17,6 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 35%;
+    max-width: 25em;
 
     margin-top: auto;
     margin-bottom: auto;
@@ -67,6 +68,20 @@ body {
         cursor: pointer;
         background-color: var(--hover-button-background);
       }
+
+      button.disabled {
+        background-color: rgb(105, 105, 105);
+        color: rgb(119, 119, 119);
+        border-color: rgb(160, 160, 160);
+      }
+
+      button.disabled:hover {
+        cursor: default;
+      }
+    }
+
+    div#error-message {
+      font-size: large;
     }
   }
 }
