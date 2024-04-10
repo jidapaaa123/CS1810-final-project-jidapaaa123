@@ -39,6 +39,7 @@
                 <input id="ingredient-input" type="text" />
                 <input id="add-button" type="submit" value="Add" />
             </form>
+            <div id="error-message">ERROR MESSAGE HERE</div>
         </section>
 
         <aside id="description">Ingredients in "Basket" are what will filter in the search in Recipes Collection</aside>
@@ -101,7 +102,7 @@
 
             </div>
 
-            <div id="basket">
+            <div id="basket" class="highlight-droparea">
                 <h3 class="section-name">Basket</h3>
                 <article class="section-contents">
                     <div class="ingredient-card">
@@ -157,8 +158,10 @@
             </div>
         </section>
 
-        <aside id="description">Drag from "Pantry" to "Basket" to add items. Click "X" on a card to remove the
-            ingredient</aside>
+        <aside id="description">
+            Drag from "Pantry" to "Basket" to add items. 
+            Click "X" on a card to remove the
+            ingredient from its respective container</aside>
 
     </main>
 </body>

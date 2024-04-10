@@ -1,62 +1,103 @@
 :root {
-
+  --main-text-color: rgb(73, 0, 0);
+  --secondary-text-color: rgba(32, 16, 0, 0.678);
+  --card-border: rgb(73, 0, 0);
+  --card-background-1: rgba(218, 114, 82, 0.63);
+  --card-background-2: rgba(228, 178, 132, 0.63);
+  --card-text-color: rgb(163, 29, 29);;
+  --almost-white: rgb(223, 205, 189);
+  --emphasis-color: rgb(163, 0, 0);
 }
 
 main#main-content {
+  display: flex;
+  flex-direction: column;
+  margin: 3em 0;
+  color: var(--main-text-color);
+
+  section,
+  aside {
+    align-self: center;
+  }
+
+  aside {
+    margin: 1em 0;
+  }
+
+  input,
+  button {
+    border-radius: 0.3em;
+    background-color: var(--almost-white);
+    color: inherit;
+    font-family: inherit;
+  }
+
+  input:hover,
+  button:hover {
+    cursor: pointer;
+    background-color: var(--secondary-text-color);
+    color: var(--card-background-1);
+  }
+
+  div#error-message {
+    color: var(--emphasis-color);
+  }
+
+  section#ingredients-area {
     display: flex;
-    flex-direction: column;
-    margin: 3em 0;
-    
-    section, aside {
-        align-self: center;
+    flex-direction: row;
+
+    div#pantry,
+    div#basket {
+      padding: 0.7em;
+      margin: 0 4em;
+      background-color: var(--card-background-1);
+
+      border-style: solid;
+      border-radius: 0.5em;
+
+      min-width: 20em;
+      min-height: 30em;
+      max-height: 30em;
+
+      overflow-y: auto;
+
+      .section-name {
+        text-align: center;
+        text-decoration: underline;
+        font-style: italic;
+        margin: 0;
+      }
     }
-
-    section#ingredients-area {
-        display: flex;
-        flex-direction: row;
-
-        div#pantry, div#basket {
-            padding: 0.7em;
-            margin: 0 4em;
-
-            border-style: solid;
-            border-radius: 0.5em;
-
-            min-width: 20em;
-            min-height: 30em;
-            max-height: 30em;
-
-            overflow-y: auto;
-
-            .section-name {
-                text-align: center;
-                text-decoration: underline;
-                font-style: italic;
-                margin: 0;
-            }
-        }
-    }
+  }
 }
 
 .ingredient-card {
-    display: flex;
+  display: flex;
+  background-color: var(--card-background-2);
+  color: var(--card-text-color);
 
-    border-style: solid;
+  border-style: solid;
+  border-radius: 0.5em;
+  border-color: var(--card-border);
+
+  padding: 0.3em;
+  margin: 0.5em 0;
+
+  .ingredient-name {
+    flex: 5;
+    margin: 0 0.2em;
+  }
+
+  .remove-button {
+    flex: 1;
+    margin: 0 0.2em;
     border-radius: 0.5em;
 
-    padding: 0.3em;
-    margin: 0.5em 0;
+    font-family: inherit;
+  }
+}
 
-    .ingredient-name {
-        flex: 5;
-        margin: 0 0.2em;
-    }
-
-    .remove-button {
-        flex: 1;
-        margin: 0 0.2em;
-    border-radius: 0.5em;
-        
-        font-family: inherit;
-    }
+.highlight-droparea {
+    box-shadow: 0 0 1em var(--emphasis-color);
 }
