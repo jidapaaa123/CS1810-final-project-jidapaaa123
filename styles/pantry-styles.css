@@ -98,6 +98,14 @@ main#main-content {
   }
 }
 
+.ingredient-card:hover {
+  cursor: grab;
+}
+
+.ingredient-card:active {
+  cursor: grabbing;
+}
+
 .highlight-droparea {
     box-shadow: 0 0 1em var(--emphasis-color);
 }
