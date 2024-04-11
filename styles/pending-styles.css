@@ -1,0 +1,20 @@
+:root {
+
+}
+
+main#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 4em;
+
+    button#new-recipe-button {
+        width: 20em;
+        height: 10em;    
+    }
+
+    article#drafts-container {
+        display: flex;
+    }
+}
