@@ -7,6 +7,9 @@
   --card-border-radius: 1em;
   --card-border: rgb(73, 0, 0);
 
+  --card-background: rgba(228, 178, 132, 0.63);
+  --card-background-hover: rgba(79, 28, 12, 0.63);
+
   --mode-selected-color: rgb(155, 121, 112);
   --almost-white: rgb(223, 205, 189);
   --card-text-color: rgb(163, 29, 29);
@@ -80,8 +83,11 @@ main#main-content {
       display: flex;
       flex-direction: column;
 
+      background-color: var(--card-background);
+
       border-style: solid;
       border-radius: var(--card-border-radius);
+      border-color: var(--card-border);
 
       min-width: var(--min-card-width);
       min-height: var(--min-card-height);
@@ -98,9 +104,16 @@ main#main-content {
 
       .recipe-contents {
         padding: 0.7em;
+        border-bottom-right-radius: inherit;
+        border-bottom-left-radius: inherit;
 
         flex: 1;
       }
+    }
+
+    .recipe-card:hover {
+      background-color: var(--card-background-hover);
+      color: var(--almost-white);
     }
   }
 }
