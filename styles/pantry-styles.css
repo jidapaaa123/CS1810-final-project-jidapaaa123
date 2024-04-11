@@ -4,7 +4,7 @@
   --card-border: rgb(73, 0, 0);
   --card-background-1: rgba(218, 114, 82, 0.63);
   --card-background-2: rgba(228, 178, 132, 0.63);
-  --card-text-color: rgb(163, 29, 29);;
+  --card-text-color: rgb(163, 29, 29);
   --almost-white: rgb(223, 205, 189);
   --emphasis-color: rgb(163, 0, 0);
 }
@@ -107,5 +107,5 @@ main#main-content {
 }
 
 .highlight-droparea {
-    box-shadow: 0 0 1em var(--emphasis-color);
+  box-shadow: 0 0 1em var(--emphasis-color);
 }
