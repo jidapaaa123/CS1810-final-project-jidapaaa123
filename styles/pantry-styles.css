@@ -32,7 +32,7 @@ main#main-content {
     font-family: inherit;
   }
 
-  input:hover,
+  #add-button:hover, 
   button:hover {
     cursor: pointer;
     background-color: var(--secondary-text-color);

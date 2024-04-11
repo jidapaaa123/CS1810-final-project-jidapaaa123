@@ -7,6 +7,9 @@
 }
 
 body {
+  /* for readability... remove if it messes up things */
+  font-size: large;
+  
   background-color: var(--main-background);
   height: 100vh;
   margin: 0;
@@ -21,7 +24,7 @@ body {
 
     background-color: var(--nav-bar-background);
     box-shadow: 0 0 1em var(--nav-bar-shadow);
-    height: 5em;
+    min-height: 5em;
     padding: 0 4em;
 
     #home-link-container, #other-links-container {
