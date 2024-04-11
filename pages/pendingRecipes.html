@@ -34,26 +34,51 @@
 
     <main id="main-content">
         <button id="new-recipe-button">Draft a New Recipe!</button>
-        
+
         <article id="drafts-container">
             <div class="draft-card">
-                <button class="mark-complete-button">Mark Complete</button>
-                <section class="draft-content">
-                    <div class="draft-name">Untitled Recipe</div>
-                    <div class="draft-id">Id: 1234</div>
+                <section class="draft-main">
+                    <div class="draft-content">
+                        <div class="draft-name">Oldest Untitled Long Name cannot fit on one lineRecipe</div>
+                        <div class="draft-id">Id: 1234</div>
+                    </div>
                     <button class="draft-edit">Edit</button>
                 </section>
-                <button class="delete-button">Delete</button>
+                <section class="draft-bottom">
+                    <button class="mark-complete-button">Mark Complete</button>
+                    <button class="delete-button">Delete</button>
+                </section>
             </div>
+
             <div class="draft-card">
-                <button class="mark-complete-button">Mark Complete</button>
-                <section class="draft-content">
-                    <div class="draft-name">Newer Recipe</div>
-                    <div class="draft-id">Id: 1234</div>
+                <section class="draft-main">
+                    <div class="draft-content">
+                        <div class="draft-name">Untitled </div>
+                        <div class="draft-id">Id: 1234</div>
+                    </div>
                     <button class="draft-edit">Edit</button>
                 </section>
-                <button class="delete-button">Delete</button>
+                <section class="draft-bottom">
+                    <button class="mark-complete-button">Mark Complete</button>
+                    <button class="delete-button">Delete</button>
+                </section>
             </div>
+
+            <div class="draft-card">
+                <section class="draft-main">
+                    <div class="draft-content">
+                        <div class="draft-name">Newest Untitled </div>
+                        <div class="draft-id">Id: 1234</div>
+                    </div>
+                    <button class="draft-edit">Edit</button>
+                </section>
+                <section class="draft-bottom">
+                    <button class="mark-complete-button">Mark Complete</button>
+                    <button class="delete-button">Delete</button>
+                </section>
+            </div>
+
+
         </article>
     </main>
 </body>

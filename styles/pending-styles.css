@@ -1,20 +1,159 @@
 :root {
+  --card-border-radius: 0.5em;
+  --main-text-color: rgb(73, 0, 0);
+  --main-font-size: large;
+  --secondary-text-color: rgba(32, 16, 0, 0.678);
 
+  --card-border: rgb(73, 0, 0);
+  --card-background-1: rgba(218, 114, 82, 0.63);
+  --card-background-2: rgba(228, 178, 132, 0.63);
+  --card-text-color: rgb(163, 29, 29);
+
+  --almost-white: rgb(223, 205, 189);
+  --emphasis-color: rgb(163, 0, 0);
+
+  --hover-brown: rgb(201, 148, 148);
+  --click-brown: rgb(131, 63, 63);
 }
 
 main#main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 4em;
+  color: var(--main-text-color);
+
+  button#new-recipe-button {
+    width: 25em;
+    height: 5em;
+    font-size: larger;
+    font-weight: bold;
+
+    color: inherit;
+    font-family: inherit;
+    border-style: solid;
+    border-color: var(--card-border);
+    background-color: var(--almost-white);
+    border-radius: var(--card-border-radius);
+  }
+
+  button#new-recipe-button:hover {
+    cursor: pointer;
+    background-color: var(--hover-brown);
+  }
+
+  button#new-recipe-button:active {
+    background-color: var(--click-brown);
+  }
+
+  article#drafts-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
 
-    padding: 4em;
+    justify-content: center;
 
-    button#new-recipe-button {
-        width: 20em;
-        height: 10em;    
-    }
+    .draft-card {
+      display: flex;
+      flex-direction: column;
 
-    article#drafts-container {
+      margin: 1em;
+      width: 12em;
+      min-height: 15em;
+      border-style: solid;
+      border-radius: var(--card-border-radius);
+
+      background-color: var(--card-background-2);
+
+      .draft-main {
         display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+
+        padding: 1em;
+        border-bottom-style: solid;
+
+        flex: 3;
+
+        .draft-content {
+          flex: 4;
+          .draft-name {
+            color: var(--card-text-color);
+            text-decoration: underline;
+            font-weight: bold;
+          }
+        }
+
+        .draft-edit {
+          flex: 1;
+          width: 4em;
+          margin: auto;
+
+          color: inherit;
+          font-family: inherit;
+          font-size: var(--main-font-size);
+
+          border-style: solid;
+          border-radius: var(--card-border-radius);
+          border-color: var(--card-border);
+          background-color: var(--almost-white);
+        }
+
+        .draft-edit:hover {
+          cursor: pointer;
+          background-color: var(--hover-brown);
+        }
+
+        .draft-edit:active {
+          background-color: var(--click-brown);
+        }
+      }
+
+      .draft-bottom {
+        display: flex;
+        flex-direction: row;
+
+        flex: 1;
+
+        button {
+          flex: 1;
+          margin: 0;
+          padding: 1em;
+
+          border-radius: inherit;
+          border-style: none;
+          border-color: var(--card-border);
+          background-color: var(--almost-white);
+        }
+
+        button.mark-complete-button {
+          border-right-style: solid;
+          border-bottom-left-radius: var(--card-border-radius);
+
+          color: inherit;
+          font-family: inherit;
+        }
+
+        button.delete-button {
+          border-left-style: solid;
+          border-bottom-right-radius: var(--card-border-radius);
+
+          color: inherit;
+          font-family: inherit;
+        }
+
+        button.mark-complete-button:hover,
+        button.delete-button:hover {
+          cursor: pointer;
+          background-color: var(--hover-brown);
+        }
+
+        button.mark-complete-button:active,
+        button.delete-button:active {
+          background-color: var(--click-brown);
+        }
+      }
     }
+  }
 }
