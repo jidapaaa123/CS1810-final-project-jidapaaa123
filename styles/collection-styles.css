@@ -1,0 +1,54 @@
+:root {
+    --min-card-width: 20em;
+    --min-card-height: 20em;
+    --max-card-width: 20em;
+    --max-card-height: 20em;
+    --card-border-radius: 1em;
+}
+
+/* Force images */
+img {
+    min-height: 0;
+    min-width: 0;
+}
+
+/* Default links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+main#main-content {
+
+    #results-container {
+        display: flex;
+        flex-wrap: wrap;
+
+        .recipe-card {
+            display: flex;
+            flex-direction: column;
+
+            border-style: solid;
+            border-radius: var(--card-border-radius);
+
+            min-width: var(--min-card-width);
+            min-height: var(--min-card-height);
+            max-width: var(--max-card-width);
+            max-height: var(--max-card-height);
+
+            .recipe-image {
+                border-bottom-style: solid;
+                border-top-right-radius: inherit;
+                border-top-left-radius: inherit;
+
+                flex: 4;
+            }
+
+            .recipe-contents {
+                padding: 0.7em;
+
+                flex: 1;
+            }
+        }
+    }
+}

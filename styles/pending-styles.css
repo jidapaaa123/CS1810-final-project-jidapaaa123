@@ -124,7 +124,7 @@ main#main-content {
           border-radius: inherit;
           border-style: none;
           border-color: var(--card-border);
-          background-color: var(--almost-white);
+          background-color: var(--card-background-1);
         }
 
         button.mark-complete-button {
