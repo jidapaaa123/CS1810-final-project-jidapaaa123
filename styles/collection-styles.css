@@ -5,6 +5,7 @@
   --max-card-height: 20em;
 
   --card-border-radius: 1em;
+  --small-border-radius: 0.5em;
   --card-border: rgb(73, 0, 0);
 
   --card-background: rgba(228, 178, 132, 0.63);
@@ -69,15 +70,34 @@ main#main-content {
     color: inherit;
     font-size: inherit;
 
+    input {
+      background-color: var(--almost-white);
+
+      border-radius: var(--small-border-radius);
+      border-style: solid;
+      border-color: var(--card-border);
+    }
+
     #submit-button {
+      margin-top: 1em;
+      border-radius: var(--small-border-radius);
+      border-style: solid;
+      border-color: var(--card-border);
       font-family: inherit;
       color: var(--card-text-color);
+    }
+
+    #submit-button:hover {
+      cursor: pointer;
+      background-color: var(--card-background-hover);
     }
   }
 
   #results-container {
     display: flex;
     flex-wrap: wrap;
+
+    justify-content: center;
 
     .recipe-card {
       display: flex;
@@ -89,6 +109,8 @@ main#main-content {
       border-radius: var(--card-border-radius);
       border-color: var(--card-border);
 
+      margin: 1em;
+
       min-width: var(--min-card-width);
       min-height: var(--min-card-height);
       max-width: var(--max-card-width);
@@ -96,6 +118,7 @@ main#main-content {
 
       .recipe-image {
         border-bottom-style: solid;
+        border-bottom-color: var(--card-border);
         border-top-right-radius: inherit;
         border-top-left-radius: inherit;
 
@@ -104,6 +127,7 @@ main#main-content {
 
       .recipe-contents {
         padding: 0.7em;
+
         border-bottom-right-radius: inherit;
         border-bottom-left-radius: inherit;
 
