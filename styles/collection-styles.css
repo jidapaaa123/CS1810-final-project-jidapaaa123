@@ -23,17 +23,17 @@ img {
   min-width: 0;
 }
 
-/* Default links */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 main#main-content {
   display: flex;
   flex-direction: column;
   color: var(--main-text-color);
   padding: 2em;
+
+  /* Default links */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
   #mode-selectors-container {
     display: flex;

@@ -10,7 +10,7 @@
     <script src="/src/ui.js" type="module"></script>
     <!-- Styles -->
     <link rel="stylesheet" href="/styles/shared-styles.css" />
-    <!-- <link rel="stylesheet" href="/styles/home-styles.css" /> -->
+    <link rel="stylesheet" href="/styles/import-styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -28,9 +28,30 @@
             <a id="pantry-link" class="nav-link" href="/pages/pantry.html">Pantry</a>
             <a id="pending-link" class="nav-link" href="/pages/pendingRecipes.html">Pending Recipes</a>
             <a id="collection-link" class="nav-link" href="/pages/recipesCollection.html">Recipes Collection</a>
-            <a id="import-link" class="nav-link" href="/pages/importRecipes.html">Import Recipes</a>
+            <a id="import-link" class="nav-link current-page" href="/pages/importRecipes.html">Import Recipes</a>
         </div>
     </nav>
+
+    <main id="main-content">
+        <h3 id="description">Make any recipe your own!</h3>
+        <form id="form">
+            <label for="name-input">Name: </label>
+            <input id="name-input" type="text" name="name-input" />
+            <input id="submit-button" type="submit" value="Search!" />
+        </form>
+
+        <section id="results-container">
+            <a class="recipe-card" href="/pages/recipe?id=1234">
+                <figure>
+                    <img class="recipe-image" src="/layout/pendingRecipePage.png"></img>
+                    <figcaption class="recipe-contents">
+                        <div class="recipe-name">Orange Chimken</div>
+                        <div class="recipe-id">Id: 1234</div>
+                    </figcaption>
+                </figure>
+            </a>
+        </section>
+    </main>
 </body>
 
 </html>

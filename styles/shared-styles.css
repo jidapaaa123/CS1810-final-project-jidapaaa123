@@ -2,7 +2,8 @@
   --main-background: #a06050;
   --nav-bar-background: rgb(36, 10, 10);
   --nav-bar-text: rgb(255, 238, 238);
-  --current-page-link-color: rgb(255, 107, 107);
+  --current-page-link-color: rgb(196, 84, 84);
+  --nav-link-hover: rgb(153, 94, 94);
   --nav-bar-shadow: black;
 }
 
@@ -49,6 +50,10 @@ body {
 
 .nav-link {
     color: var(--nav-bar-text);
+}
+
+.nav-link:hover {
+  color: var(--nav-link-hover);
 }
 
 .current-page {

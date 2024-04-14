@@ -1,0 +1,39 @@
+:root {
+  --min-card-width: 20em;
+  --min-card-height: 20em;
+  --max-card-width: 20em;
+  --max-card-height: 20em;
+
+  --main-text-color: rgb(73, 0, 0);
+  --emphasis-color: rgb(97, 0, 0);
+}
+
+/* Force images */
+img {
+  min-height: 0;
+  min-width: 0;
+}
+
+main#main-content {
+  display: flex;
+  flex-direction: column;
+
+  color: var(--main-text-color);
+  padding: 2em;
+
+  /* Default links */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #description {
+    margin: 0 auto;
+    color: var(--emphasis-color);
+    font-style: italic;
+  }
+
+  #form {
+    margin: 0 auto;
+  }
+}
