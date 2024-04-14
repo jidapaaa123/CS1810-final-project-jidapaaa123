@@ -70,6 +70,8 @@ main#main-content {
     color: inherit;
     font-size: inherit;
 
+    margin-top: 1em;
+
     input {
       background-color: var(--almost-white);
 
@@ -79,7 +81,6 @@ main#main-content {
     }
 
     #submit-button {
-      margin-top: 1em;
       border-radius: var(--small-border-radius);
       border-style: solid;
       border-color: var(--card-border);
