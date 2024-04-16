@@ -6,6 +6,11 @@
   --card-title-text: rgb(73, 0, 0);
   --emphasis-color: rgb(131, 0, 0);
   --keyword-color: rgb(34, 14, 104);
+
+  --hover-brown: rgb(201, 148, 148);
+  --click-brown: rgb(131, 63, 63);
+  --almost-white: rgb(223, 205, 189);
+  --button-border-radius: 0.5em;
 }
 
 body {
@@ -13,6 +18,9 @@ body {
   flex-direction: column;
 
   main#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 3em;
     color: var(--card-title-text);
 
@@ -82,4 +90,30 @@ body {
 
 a.link-card:hover {
   transform: scale(1.07);
+}
+
+button#signout-button {
+  width: 25em;
+  height: 5em;
+
+  font-size: larger;
+  font-weight: bold;
+  text-decoration: underline;
+  font-style: italic;
+
+  color: var(--almost-white);
+  font-family: inherit;
+  border-style: solid;
+  border-color: var(--card-border);
+  background-color: var(--card-title-background);
+  border-radius: var(--button-border-radius);
+}
+
+button#signout-button:hover {
+  cursor: pointer;
+  background-color: var(--hover-brown);
+}
+
+button#signout-button:active {
+  background-color: var(--click-brown);
 }
