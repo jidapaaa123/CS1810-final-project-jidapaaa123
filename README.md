@@ -18,8 +18,8 @@ I'm making a ***recipe tracker***, which can help me track, well, recipes. I can
 ### 1) Week of 4/6  
 > ~~1.1) Design layouts of Page 1, 2, 3, 4, 5, and full Recipe page. Share a main layout~~  
 > ~~1.2) Do placeholder styling for those 4 pages~~  
-> 1.3) Get started on Page 2's functionality  
-> 1.4) Structure data to maybe prepare for an account-based system via my own API later  
+> ~~1.3) Get started on Page 2's functionality~~  
+> ~~1.4) Structure data to maybe prepare for an account-based system via my own API later~~  
 ### 2) Week of 4/13
 > 2.1) Page 2: user can create an "instance" of a recipe draft. A unique ID is generated for it.  
 > 2.2) Page 2: user may click on a recipe draft card to edit its contents  
@@ -27,17 +27,18 @@ I'm making a ***recipe tracker***, which can help me track, well, recipes. I can
 > 2.4) Recipe cards have the same design for both Pending and Complete.  
 > 2.5) Page 4: render recipes from external API according to user input  
 > 2.6) Page 4: user can "send to **Recipes Collection**" a recipe  
-### 3) Week of 4/20
-> 3.1) Page 3: filters recipes based on input. Has pagination. User may enter a page number to skip to  
+> ~~2.7) Page 4: render placeholder recipes from external API according to user input~~  
+### 3) Week of 4/20  
+> 3.1) Page 3: filters recipes based on input. Has pagination? User may enter a page number to skip to  
 > 3.2) Page 3: can send a recipe back to the **Pending Recipes** (for editing/removing)  
-> 3.3) Page 3: sliding side panel to see the basket  
-> 3.4) Page 3: can keep track of how many times a recipe has been "Cooked!"  
+> 3.3) Page 3: sliding(?) side panel to see the basket  
+> ~~3.4) Page 3: can keep track of how many times a recipe has been "Cooked!"~~  
 > ~~3.5) Page 4: renders the top dishes by times-cooked table~~  
 > 3.6) Page 3: each recipe card can redirect user to the right full-recipe page via **query string**  
 ### 4) Week of 4/27  
 > 4.1) Page 1: user can enter ingredient. Will not allow duplicates (unable to distinguish singular vs. plural nouns, but will ask the user to only use singular versions)  
 > 4.2) Page 1: user drag-and-drop ingredients into basket  
-> 4.3) Polish up the account system (if still implementing that)  
+> ~~4.3) Polish up the account system (if still implementing that) (no I am not: just using the C# API to remember MY data across computers)~~  
 
 ## Requirements fulfilled  
 ### HTML Mastery  
@@ -45,14 +46,14 @@ I'm making a ***recipe tracker***, which can help me track, well, recipes. I can
 > img: 2.2)  
 > ~~table: 3.5)~~  
 > ul/ol/dl: 4.2)  
-> figure: 2.2)  
-> section/article: 4.1), 4.2)  
-> aside: 2.5) (as a brief explanation of the API search)  
-> nav: 1.1)  
+> ~~figure: 2.2)~~  
+> ~~section/article: 4.1), 4.2)~~  
+> ~~aside: 2.5) (as a brief explanation of the API search)~~  
+> ~~nav: 1.1)~~  
 
 ### CSS Mastery - should already use most of these by nature...  
-> transitions: 3.3)  
-> hover: buttons like in 2.3), 3.2), 3.4)  
+> ~~transitions: 3.3)~~  
+> ~~hover: buttons like in 2.3), 3.2), 3.4)~~  
 > nth child: styling recipe cards  
 
 ### Javascript Mastery  
