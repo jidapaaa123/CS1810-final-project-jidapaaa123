@@ -34,9 +34,9 @@
         <h3 id="description">Make any recipe your own!</h3>
         <form id="form">
             <label for="name-input">Name: </label>
-            <input id="name-input" type="text" name="name-input" />
+            <input id="name-input" type="text" name="name-input" autocomplete="off"/>
             <input id="submit-button" type="submit" value="Search!" />
-            <div id="error">ERROR</div>
+            <div id="error"></div>
         </form>
 
         <section id="results-container">
@@ -47,6 +47,8 @@
                     <button class="recipe-import">Import</button>
                 </figcaption>
             </figure>
+
+            
             <figure class="recipe-card">
                 <img class="recipe-image" src="/layout/pendingRecipePage.png"></img>
                 <figcaption class="recipe-contents">

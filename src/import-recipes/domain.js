@@ -24,5 +24,5 @@ export const GetImportedRecipes = async (searchWord) => {
 };
 
 export const IsEmpty = (string) => {
-    return string === null || string === undefined || string.Trim() == "";
+    return string === null || string === undefined || string.trim() == "";
 }
