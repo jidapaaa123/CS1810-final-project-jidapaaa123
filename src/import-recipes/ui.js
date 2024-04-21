@@ -1,6 +1,5 @@
 import { GetImportedRecipes, IsEmpty } from "./domain.js";
 
-const mainContentElement = document.getElementById("main-content");
 const formElement = document.getElementById("form");
 const nameInputElement = document.getElementById("name-input");
 const submitButton = document.getElementById("submit-button");
@@ -39,8 +38,10 @@ formElement.addEventListener("submit", async (e) => {
     
     const recipes = await GetImportedRecipes(input);
     console.log(recipes);
+    nameInputElement.value = "";
 
     RenderAllRecipes(recipes);
+    disableSubmit(true);
 })
 
 // see domain to see recipes item

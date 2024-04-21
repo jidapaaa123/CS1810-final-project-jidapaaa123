@@ -1,6 +1,17 @@
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+builder.Services.AddCors();
 
-app.MapGet("/", () => "Hello World!");
+var app = builder.Build();
+app.UseCors(
+    options =>
+        options
+        .AllowAnyHeader()
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+);
+
+
+app.MapGet("/NewGuid", () => Guid.NewGuid().ToString());
+
 
 app.Run();
