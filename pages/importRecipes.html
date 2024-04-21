@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Javascript -->
-    <script src="/src/service.js" type="module"></script>
-    <script src="/src/domain.js" type="module"></script>
-    <script src="/src/ui.js" type="module"></script>
+    <script src="/src/import-recipes/ui.js" type="module"></script>
     <!-- Styles -->
     <link rel="stylesheet" href="/styles/shared-styles.css" />
     <link rel="stylesheet" href="/styles/import-styles.css" />
@@ -38,6 +36,7 @@
             <label for="name-input">Name: </label>
             <input id="name-input" type="text" name="name-input" />
             <input id="submit-button" type="submit" value="Search!" />
+            <div id="error">ERROR</div>
         </form>
 
         <section id="results-container">

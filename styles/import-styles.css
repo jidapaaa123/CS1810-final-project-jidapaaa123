@@ -20,6 +20,9 @@
   --main-text-color: rgb(73, 0, 0);
   --link-color: rgb(128, 33, 30);
   --emphasis-color: rgb(97, 0, 0);
+  --danger-color: rgb(158, 18, 18);
+  --dark-grey: rgb(94, 94, 94);
+  --grey: grey;
 }
 
 /* Force images */
@@ -73,6 +76,18 @@ main#main-content {
     #submit-button:hover {
       cursor: pointer;
       background-color: var(--card-background-hover);
+    }
+
+    #submit-button:active {
+      cursor: pointer;
+      background-color: var(--main-text-color);
+    }
+
+    #error {
+      margin: 0;
+      text-decoration: underline;
+      font-style: italic;
+      color: var(--danger-color);
     }
   }
 
@@ -148,4 +163,9 @@ main#main-content {
       }
     }
   }
+}
+
+#submit-button.disabled {
+  color: var(--dark-grey) !important;
+  background-color: var(--grey) !important;
 }
