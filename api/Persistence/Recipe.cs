@@ -13,7 +13,7 @@ public class Recipe
     public bool HasRequiredInfo { get; set; }
 
     /// <summary>
-    /// As string?
+    /// As string? Public image link only
     /// </summary>
     public string? Img { get; set; }
     /// <summary>

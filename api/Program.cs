@@ -11,7 +11,11 @@ app.UseCors(
 );
 
 
-app.MapGet("/NewGuid", () => Guid.NewGuid());
+app.MapGet("/NewGuid", () =>
+{
+    var guid = Guid.NewGuid();
+    return new { guid };
+});
 
 
 app.Run();

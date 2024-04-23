@@ -24,4 +24,24 @@ public class StorageManager
     {
         throw new NotImplementedException();
     }
+
+    public void RemoveRecipe(Recipe recipe)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void RemoveIngredient(Ingredient ingredient)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Recipe GetRecipe(string id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void UpdateRecipe(Recipe recipe)
+    {
+        throw new NotImplementedException();
+    }
 }

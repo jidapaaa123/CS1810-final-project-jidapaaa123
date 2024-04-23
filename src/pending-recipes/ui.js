@@ -1,4 +1,4 @@
-import { GuidString } from "./svc.js";
+import { GuidString } from "../service.js";
 import { GetPendingRecipes } from "./domain.js";
 
 const newRecipeButton = document.getElementById("new-recipe-button");
