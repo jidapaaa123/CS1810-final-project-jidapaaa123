@@ -11,7 +11,7 @@ app.UseCors(
 );
 
 
-app.MapGet("/NewGuid", () => Guid.NewGuid().ToString());
+app.MapGet("/NewGuid", () => Guid.NewGuid());
 
 
 app.Run();

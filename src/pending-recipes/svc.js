@@ -3,8 +3,10 @@ export const GuidString = async () => {
     const url = "http://localhost:5185/NewGuid";
 
     const result = await fetch(url);
-    console.log(result);
+    console.log(result.body);
     const guid = await result.json();
     console.log(result);
     return guid;
 }
+
+GuidString();
