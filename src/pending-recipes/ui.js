@@ -1,4 +1,4 @@
-import { GuidString } from "../service.js";
+import { GuidString, GetAllRecipes, AddRecipe } from "../service.js";
 import { GetPendingRecipes } from "./domain.js";
 
 const newRecipeButton = document.getElementById("new-recipe-button");
@@ -78,3 +78,16 @@ newRecipeButton.addEventListener("click", (e) => {
 });
 
 RenderPendingRecipes();
+
+const recipe = {
+  id: await GuidString(),
+  name: "Blue chimken",
+  isPending: true,
+  hasRequiredInfo: false,
+  img: "pretend/its/an/imagelink",
+  ingredients: ["salt", "pepper", "paprika"],
+  instructions: "Cook it",
+};
+AddRecipe(recipe);
+
+GetAllRecipes();

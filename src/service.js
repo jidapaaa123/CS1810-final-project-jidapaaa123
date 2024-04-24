@@ -1,36 +1,56 @@
-// external recipe API: 
-const FetchRecipe = async (recipe) => {
-    const result = await fetch (`https://www.edamam.com/results/recipes/?search=${recipe.trim().toLowerCase()}`);
-    const recipes = await result.json();
-    return [...recipes];
+// !!!MY C# API!!!
+// if something goes wrong, !**CHECK this url**!
+const url = "http://localhost:5185";
+
+export const GuidString = async () => {
+  const result = await fetch(`${url}/newguid`);
+  const body = await result.json();
+  console.log(body);
+
+  return body.guid;
 };
 
-// my C# api: 
-export const GuidString = async () => {
-    // if something goes wrong, check this url
-    const url = "http://localhost:5185/NewGuid";
+export const GetAllRecipes = async () => {
+  const result = await fetch(`${url}/recipes/get`);
+  const body = await result.json();
+  console.log(body);
 
-    const result = await fetch(url);
-    const body = await result.json();
-    console.log(body);
-    return body.guid;
-}
-GuidString();
+  return body.allRecipes;
+};
 
+export const AddRecipe = async (recipe) => {
+  await fetch(`${url}/recipes/add`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(recipe),
+  });
+};
+
+// external recipe API:
+const FetchRecipe = async (recipe) => {
+  const result = await fetch(
+    `https://www.edamam.com/results/recipes/?search=${recipe
+      .trim()
+      .toLowerCase()}`
+  );
+  const recipes = await result.json();
+  return [...recipes];
+};
 
 // localStorage: used for items in the Basket
 const UpdateLocalStorage = (key, value) => {
-    localStorage.setItem(key, value);
+  localStorage.setItem(key, value);
 };
 
 const GetFromLocalStorage = (key) => {
-    return localStorage.getItem(key);
+  return localStorage.getItem(key);
 };
 
 const RemoveFromLocalStorange = (key) => {
-    localStorage.removeItem(key);
-}
-
+  localStorage.removeItem(key);
+};
 
 // const recipes = await FetchRecipe("orange chicken");
 // UpdateLocalStorage("recipes", JSON.stringify(recipes))

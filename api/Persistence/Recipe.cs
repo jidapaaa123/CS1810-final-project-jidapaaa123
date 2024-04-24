@@ -15,7 +15,7 @@ public class Recipe
     /// <summary>
     /// As string? Public image link only
     /// </summary>
-    public string? Img { get; set; }
+    public string? Image { get; set; }
     /// <summary>
     /// Separated by ","
     /// </summary>
