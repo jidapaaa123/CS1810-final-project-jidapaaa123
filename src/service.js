@@ -13,7 +13,6 @@ export const GuidString = async () => {
 export const GetAllRecipes = async () => {
   const result = await fetch(`${url}/recipes/get`);
   const body = await result.json();
-  console.log(body);
 
   return body.allRecipes;
 };
@@ -27,6 +26,10 @@ export const AddRecipe = async (recipe) => {
     body: JSON.stringify(recipe),
   });
 };
+
+export const ClearRecipes = async () => {
+  await fetch(`${url}/recipes/clear`);
+}
 
 // external recipe API:
 const FetchRecipe = async (recipe) => {

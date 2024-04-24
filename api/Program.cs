@@ -36,6 +36,7 @@ app.MapGet("/recipes/get", () =>
     var allRecipes = storage.GetAllRecipes();
     return new { allRecipes };
 });
+app.MapGet("/recipes/clear", () => storage.ResetRecipes());
 
 app.Run();
 

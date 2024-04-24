@@ -1,4 +1,4 @@
-import { GetAllRecipes } from "../service.js";
+import { ClearRecipes, GetAllRecipes } from "../service.js";
 
 // returns completed recipes & re-formats each recipe's ingredients from string into list
 export const CompletedRecipes = async () => {
@@ -10,5 +10,19 @@ export const CompletedRecipes = async () => {
         return r;
     })
 
-    return formatted;
+    return [...formatted];
 };
+console.log(await CompletedRecipes())
+// ClearRecipes()
+
+export const SearchByName = async (search) => {
+    const completeds = await CompletedRecipes();
+    const keyword = search.trim().toLowerCase();
+
+    if (keyword == undefined || keyword == null || keyword == "") {
+        return [...completeds];
+    }
+
+    const filtered = completeds.filter(r => r.name.toLowerCase().includes(keyword));
+    return [...filtered];
+}

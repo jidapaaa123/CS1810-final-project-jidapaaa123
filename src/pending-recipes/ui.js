@@ -81,10 +81,10 @@ RenderPendingRecipes();
 
 // const recipe = {
 //   id: await GuidString(),
-//   name: "Finished Blue chimken",
-//   isPending: false,
+//   name: "lying salad",
+//   isPending: true,
 //   hasRequiredInfo: true,
-//   img: "pretend/its/an/imagelink",
+//   image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
 //   ingredients: ["salt", "pepper", "paprika"],
 //   instructions: "Cook it",
 // };
