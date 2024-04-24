@@ -79,15 +79,15 @@ newRecipeButton.addEventListener("click", (e) => {
 
 RenderPendingRecipes();
 
-const recipe = {
-  id: await GuidString(),
-  name: "Blue chimken",
-  isPending: true,
-  hasRequiredInfo: false,
-  img: "pretend/its/an/imagelink",
-  ingredients: ["salt", "pepper", "paprika"],
-  instructions: "Cook it",
-};
-AddRecipe(recipe);
+// const recipe = {
+//   id: await GuidString(),
+//   name: "Finished Blue chimken",
+//   isPending: false,
+//   hasRequiredInfo: true,
+//   img: "pretend/its/an/imagelink",
+//   ingredients: ["salt", "pepper", "paprika"],
+//   instructions: "Cook it",
+// };
+// AddRecipe(recipe);
 
 GetAllRecipes();
