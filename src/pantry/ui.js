@@ -1,4 +1,4 @@
-import { AddIngredient, GetIngredients } from "../service.js";
+import { AddIngredient, DeleteIngredient, GetIngredients } from "../service.js";
 
 const formElement = document.getElementById("add-form");
 const inputElement = document.getElementById("ingredient-input");
@@ -38,8 +38,9 @@ const MakeIngredientCard = (ingredient) => {
   removeButton.textContent = "X";
 
   // TO-DO: delete ingredient
-  removeButton.addEventListener("click", () => {
-    console.log("Remove ingredient feature NOT implemented");
+  removeButton.addEventListener("click", async () => {
+    await DeleteIngredient(ingredient);
+    await RenderPantryContents();
   });
 
   card.appendChild(nameElement);

@@ -133,6 +133,7 @@ public class StorageManager
     /// <returns></returns>
     public bool DeleteIngredient(string name)
     {
+        // there should be no duplicates, anyway
         PantryIngredient? ingredient = connection.Find<PantryIngredient>(i => i.Name == name);
 
         if (ingredient is null)

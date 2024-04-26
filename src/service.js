@@ -64,7 +64,7 @@ export const AddRecipe = async (recipe) => {
 
 export const AddIngredient = async (name) => {
   const nameObj = { name };
-  console.log(nameObj)
+
   await fetch(`${url}/ingredients/add`, {
     method: "POST",
     headers: {
@@ -91,6 +91,18 @@ export const DeleteRecipe = async (recipe) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(recipe),
+  });
+};
+
+export const DeleteIngredient = async (name) => {
+  const nameObj = { name };
+
+  await fetch(`${url}/ingredients/delete`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(nameObj),
   });
 };
 
