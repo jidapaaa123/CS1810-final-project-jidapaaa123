@@ -130,7 +130,7 @@ const MakeRecipeCard = (recipe) => {
   const card = document.createElement("a");
   card.classList.add("recipe-card");
 
-  card.setAttribute("href", `/pages/recipe?id=${recipe.id}`);
+  card.setAttribute("href", `/pages/recipe.html?id=${recipe.id}`);
   card.setAttribute("target", "_blank");
 
   const img = document.createElement("img");

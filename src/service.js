@@ -5,7 +5,6 @@ const url = "http://localhost:5185";
 export const GuidString = async () => {
   const result = await fetch(`${url}/newguid`);
   const body = await result.json();
-  console.log(body);
 
   return body.guid;
 };
@@ -47,8 +46,6 @@ export const GetAllRecipes = async () => {
 };
 
 export const AddRecipe = async (recipe) => {
-  console.log(JSON.stringify(recipe));
-
   await fetch(`${url}/recipes/add`, {
     method: "POST",
     headers: {

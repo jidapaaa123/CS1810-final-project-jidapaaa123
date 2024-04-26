@@ -81,24 +81,14 @@ RenderPendingRecipes();
 
 const recipe = {
   id: await GuidString(),
-  name: "lying salad",
+  name: "red4 salad",
   isPending: false,
   hasRequiredInfo: true,
   image:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
   ingredients: [
     {
-      name: "salt",
-      isOptional: true,
-      substitutes: ["himalayan salt"],
-    },
-    {
-      name: "pepper",
-      isOptional: true,
-      substitutes: ["himalayan salt"],
-    },
-    {
-      name: "paprika",
+      name: "unique ingredient",
       isOptional: true,
       substitutes: ["himalayan salt"],
     },
@@ -106,6 +96,6 @@ const recipe = {
   instructions: "Cook it",
 };
 
-AddRecipe(recipe);
+// AddRecipe(recipe);
 
-GetAllRecipes();
+console.log(await GetAllRecipes());

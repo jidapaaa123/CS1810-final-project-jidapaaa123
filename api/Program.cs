@@ -24,21 +24,19 @@ app.MapGet("/newguid", () =>
 
 app.MapPost("/ingredients/add", (PantryIngredientRequest ingredient) =>
 {
+    throw new NotImplementedException();
+});
 
+app.MapGet("/ingredients/get", () =>
+{
+    throw new NotImplementedException();
 });
 
 app.MapPost("/recipes/add", (RecipeRequest request) =>
 {
-    Console.WriteLine(request.Ingredients.Count);
-    Console.WriteLine(request.Ingredients[0].IsOptional);
-    Console.WriteLine(request.Ingredients[0].Name);
-    Console.WriteLine(request.Ingredients[0].Substitutes[0]);
-
     string ingredients = StorageManager.StringifyIngredients(request.Ingredients);
     Recipe recipe = new() { Id = request.Id, Name = request.Name, IsPending = request.IsPending, Image = request.Image, Ingredients = ingredients, Instructions = request.Instructions };
     storage.AddRecipe(recipe);
-
-    Console.WriteLine("added!");
 });
 app.MapGet("/recipes/get", () =>
 {
