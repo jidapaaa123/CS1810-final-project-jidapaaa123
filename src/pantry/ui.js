@@ -65,6 +65,9 @@ const MakeIngredientCard = (ingredient) => {
     basketElement.classList.add("highlight-droparea");
     e.dataTransfer.setData("ingredient", ingredient);
   });
+  card.addEventListener("dragend", (e) => {
+    basketElement.classList.remove("highlight-droparea");
+  });
 
   const nameElement = document.createElement("div");
   nameElement.classList.add("ingredient-name");
