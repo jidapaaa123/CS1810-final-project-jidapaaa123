@@ -43,6 +43,7 @@ const MakeIngredientCard = (ingredient) => {
   // drag n drop support - dropped item
   card.draggable = true;
   card.addEventListener("dragstart", (e) => {
+    basketElement.classList.add("highlight-droparea");
     e.dataTransfer.setData("ingredient", ingredient);
   });
 
@@ -96,8 +97,8 @@ basketElement.addEventListener("dragover", (e) => {
   e.preventDefault();
 })
 basketElement.addEventListener("drop", (e) => {
+  basketElement.classList.remove("highlight-droparea");
   const ingredient = e.dataTransfer.getData("ingredient");
-  console.log(`TO BASKET: ${ingredient}`);
 
   AddToBasket(ingredient);
   RenderBasketContents();

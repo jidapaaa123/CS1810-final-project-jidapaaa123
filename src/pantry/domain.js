@@ -30,10 +30,7 @@ export const RemoveFromBasket = (ingredient) => {
   const index = currentBasket.indexOf(ingredient);
   currentBasket.splice(index, 1);
 
-  console.log(currentBasket)
   const obj = { ingredients: currentBasket };
 
   UpdateLocalStorage(key, JSON.stringify(obj));
 };
-
-console.log(GetBasketContents());
