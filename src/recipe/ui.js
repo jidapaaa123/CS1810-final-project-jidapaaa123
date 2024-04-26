@@ -32,7 +32,7 @@ const RenderRecipe = async () => {
     let text = `${i.isOptional ? "@" : ""}${i.name}(`;
 
     i.substitutes.forEach(s => {
-        text += s.name + "/";
+        text += s + "/";
     });
     text += ")";
     ingre += text;

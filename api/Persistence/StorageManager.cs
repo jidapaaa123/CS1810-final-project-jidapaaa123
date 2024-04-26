@@ -105,7 +105,7 @@ public class StorageManager
 
     public void UpdateRecipe(Recipe recipe)
     {
-        throw new NotImplementedException();
+        connection.Update(recipe);
     }
 
     public bool HasIngredient(string name)

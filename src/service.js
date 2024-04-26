@@ -15,7 +15,7 @@ export const GetAllRecipes = async () => {
   const body = await result.json();
 
   for (const recipe of body.allRecipes) {
-    const ingredients = recipe.ingredients.split(',').map((i) => {
+    const ingredients = recipe.ingredients.split(",").map((i) => {
       const optional = i[0] == "@";
       const parts = i.replace("@", "").split("("); // 2 possible formats: [name, substitutes)] OR [name]
 
@@ -35,7 +35,7 @@ export const GetAllRecipes = async () => {
       return {
         name: name,
         isOptional: optional,
-        substitutes: substitutes.split('/'), // salt/pepper --> ["salt", "pepper"]
+        substitutes: substitutes.split("/"), // salt/pepper --> ["salt", "pepper"]
       };
     });
 
@@ -47,6 +47,16 @@ export const GetAllRecipes = async () => {
 
 export const AddRecipe = async (recipe) => {
   await fetch(`${url}/recipes/add`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(recipe),
+  });
+};
+
+export const UpdateRecipe = async (recipe) => {
+  await fetch(`${url}/recipes/update`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
