@@ -56,42 +56,40 @@ public class StorageManager
         return str;
     }
 
-    // public static IEnumerable<Ingredient> ObjectifyIngredients(string str)
-    // {
-    //     List<Ingredient> list = new();
-    //     string[] ingredients = str.Split(',');
-
-    //     foreach (var ingredient in ingredients)
-    //     {
-    //         list.Add(new Ingredient() { Name = ingredient });
-    //     }
-
-    //     return list;
-    // }
-
     public void AddRecipe(Recipe recipe)
     {
         connection.Insert(recipe);
     }
 
-    public void AddIngredient(PantryIngredient ingredient)
+    /// <summary>
+    /// Returns bool: "was any ingredient added?" / Will not add duplicates
+    /// </summary>
+    /// <param name="ingredient"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
+    public bool AddIngredient(PantryIngredientRequest request)
     {
-        throw new NotImplementedException();
-    }
+        if (HasIngredient(request.Name))
+        {
+            return false;
+        }
 
-    public void RemoveRecipe(Recipe recipe)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void RemoveIngredient(PantryIngredient ingredient)
-    {
-        throw new NotImplementedException();
+        connection.Insert(new PantryIngredient() { Name = request.Name });
+        return true;
     }
 
     public Recipe GetRecipe(string id)
     {
         throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Although it's stored with an Id for storage purposes, it's only use is the names
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerable<string> GetPantryIngredientNames()
+    {
+        return connection.Table<PantryIngredient>().Select(i => i.Name);
     }
 
     /// <summary>
@@ -110,7 +108,7 @@ public class StorageManager
 
     public bool HasIngredient(string name)
     {
-        throw new NotImplementedException();
+        return connection.Table<PantryIngredient>().Any(i => i.Name == name);
     }
 
     public bool HasRecipe(string id)

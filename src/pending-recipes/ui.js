@@ -104,82 +104,83 @@ newRecipeButton.addEventListener("click", async (e) => {
 
 RenderPendingRecipes();
 
-for (const i in "012") {
-  const recipe = {
-    id: await GuidString(),
-    name: `red${i} salad`,
-    isPending: true,
-    hasRequiredInfo: true,
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
-    ingredients: [
-      {
-        name: "unique ingredient",
-        isOptional: true,
-        substitutes: ["himalayan salt"],
-      },
-    ],
-    instructions: "Cook it",
-  };
+/* DEBUGLAND: careful what you uncomment */
+// for (const i in "012") {
+//   const recipe = {
+//     id: await GuidString(),
+//     name: `red${i} salad`,
+//     isPending: true,
+//     hasRequiredInfo: true,
+//     image:
+//       "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
+//     ingredients: [
+//       {
+//         name: "unique ingredient",
+//         isOptional: true,
+//         substitutes: ["himalayan salt"],
+//       },
+//     ],
+//     instructions: "Cook it",
+//   };
 
-  const recipe2 = {
-    id: await GuidString(),
-    name: `not doneable green${i} salad`,
-    isPending: true,
-    hasRequiredInfo: false,
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
-    ingredients: [
-      {
-        name: "unique ingredient",
-        isOptional: true,
-        substitutes: ["himalayan salt"],
-      },
-    ],
-    instructions: "Cook it",
-  };
+//   const recipe2 = {
+//     id: await GuidString(),
+//     name: `not doneable green${i} salad`,
+//     isPending: true,
+//     hasRequiredInfo: false,
+//     image:
+//       "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
+//     ingredients: [
+//       {
+//         name: "unique ingredient",
+//         isOptional: true,
+//         substitutes: ["himalayan salt"],
+//       },
+//     ],
+//     instructions: "Cook it",
+//   };
 
-  const recipe3 = {
-    id: await GuidString(),
-    name: `doneable green${i} salad`,
-    isPending: true,
-    hasRequiredInfo: true,
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
-    ingredients: [
-      {
-        name: "unique ingredient",
-        isOptional: true,
-        substitutes: ["himalayan salt"],
-      },
-    ],
-    instructions: "Cook it",
-  };
+//   const recipe3 = {
+//     id: await GuidString(),
+//     name: `doneable green${i} salad`,
+//     isPending: true,
+//     hasRequiredInfo: true,
+//     image:
+//       "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
+//     ingredients: [
+//       {
+//         name: "unique ingredient",
+//         isOptional: true,
+//         substitutes: ["himalayan salt"],
+//       },
+//     ],
+//     instructions: "Cook it",
+//   };
 
   // await AddRecipe(recipe);
   // await AddRecipe(recipe2);
   // await AddRecipe(recipe3);
-}
+// }
 
-const recipe = {
-  id: await GuidString(),
-  name: `red1 salad`,
-  isPending: true,
-  hasRequiredInfo: true,
-  image:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
-  ingredients: [
-    {
-      name: "unique ingredient",
-      isOptional: true,
-      substitutes: ["himalayan salt"],
-    },
-  ],
-  instructions: "Cook it",
-};
+// const recipe = {
+//   id: await GuidString(),
+//   name: `red1 salad`,
+//   isPending: true,
+//   hasRequiredInfo: true,
+//   image:
+//     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
+//   ingredients: [
+//     {
+//       name: "unique ingredient",
+//       isOptional: true,
+//       substitutes: ["himalayan salt"],
+//     },
+//   ],
+//   instructions: "Cook it",
+// };
 
 // console.log(recipe)
 // AddRecipe(recipe)
 
 // ClearRecipes()
-console.log(await GetAllRecipes());
+// console.log(await GetAllRecipes());

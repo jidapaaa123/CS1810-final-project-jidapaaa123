@@ -7,6 +7,10 @@
   --card-text-color: rgb(163, 29, 29);
   --almost-white: rgb(223, 205, 189);
   --emphasis-color: rgb(163, 0, 0);
+
+  --grey: grey;
+  --greyer: rgb(107, 107, 107);
+  --click-brown: rgb(43, 8, 8);
 }
 
 main#main-content {
@@ -27,6 +31,8 @@ main#main-content {
   input,
   button {
     border-radius: 0.3em;
+    border-style: solid;
+    border-color: var(--card-border);
     background-color: var(--almost-white);
     color: inherit;
     font-family: inherit;
@@ -37,6 +43,12 @@ main#main-content {
     cursor: pointer;
     background-color: var(--secondary-text-color);
     color: var(--card-background-1);
+  }
+
+  #add-button:active, 
+  button:active {
+    cursor: pointer;
+    background-color: var(--click-brown);
   }
 
   div#error-message {
@@ -108,4 +120,9 @@ main#main-content {
 
 .highlight-droparea {
   box-shadow: 0 0 1em var(--emphasis-color);
+}
+
+.disabled {
+  color: var(--greyer) !important;
+  background-color: var(--grey) !important;
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Javascript -->
-    <script src="/src/service.js" type="module"></script>
+    <script src="/src/pantry/ui.js" type="module"></script>
     <!-- Styles -->
     <link rel="stylesheet" href="/styles/shared-styles.css" />
     <link rel="stylesheet" href="/styles/pantry-styles.css" />
@@ -31,11 +31,11 @@
     </nav>
 
     <main id="main-content">
-        <section id="search-container">
-            <form id="search-form">
+        <section id="form-container">
+            <form id="add-form">
                 <label for="ingredient-input">New Ingredient: </label>
                 <input id="ingredient-input" name="ingredient-input" type="text" autocomplete="off" />
-                <input id="add-button" type="submit" value="Add" />
+                <input id="add-button" class="disabled" type="submit" value="Add" />
             </form>
             <div id="error-message">ERROR MESSAGE HERE</div>
         </section>
@@ -46,7 +46,7 @@
             <div id="pantry">
                 <h3 class="section-name">Pantry</h3>
 
-                <article class="section-contents">
+                <article id="pantry-contents" class="section-contents">
                     <div class="ingredient-card">
                         <div class="ingredient-name">Salt</div>
                         <button class="remove-button">X</button>
@@ -61,83 +61,19 @@
                         <div class="ingredient-name">Salt</div>
                         <button class="remove-button">X</button>
                     </div>
-                    
-                    <div class="ingredient-card">
-                        <div class="ingredient-name">Pepper</div>
-                        <button class="remove-button">X</button>
-                    </div>
 
-                    <div class="ingredient-card">
-                        <div class="ingredient-name">Salt</div>
-                        <button class="remove-button">X</button>
-                    </div>
-                    
-                    <div class="ingredient-card">
-                        <div class="ingredient-name">Pepper</div>
-                        <button class="remove-button">X</button>
-                    </div>
-
-                    <div class="ingredient-card">
-                        <div class="ingredient-name">Salt</div>
-                        <button class="remove-button">X</button>
-                    </div>
-                    
-                    <div class="ingredient-card">
-                        <div class="ingredient-name">Pepper</div>
-                        <button class="remove-button">X</button>
-                    </div>
-
-                    <div class="ingredient-card">
-                        <div class="ingredient-name">Salt</div>
-                        <button class="remove-button">X</button>
-                    </div>
-                    
-                    <div class="ingredient-card">
-                        <div class="ingredient-name">Pepper</div>
-                        <button class="remove-button">X</button>
-                    </div>
                 </article>
 
             </div>
 
             <div id="basket" class="highlight-droparea">
                 <h3 class="section-name">Basket</h3>
-                <article class="section-contents">
+                <article id="basket-contents" class="section-contents">
                     <div class="ingredient-card">
                         <div class="ingredient-name">Salt</div>
                         <button class="remove-button">X</button>
                     </div>
 
-                    <div class="ingredient-card">
-                        <div class="ingredient-name">Pepper</div>
-                        <button class="remove-button">X</button>
-                    </div>
-
-                    <div class="ingredient-card">
-                        <div class="ingredient-name">Salt</div>
-                        <button class="remove-button">X</button>
-                    </div>
-                    
-                    <div class="ingredient-card">
-                        <div class="ingredient-name">Pepper</div>
-                        <button class="remove-button">X</button>
-                    </div>
-
-                    <div class="ingredient-card">
-                        <div class="ingredient-name">Salt</div>
-                        <button class="remove-button">X</button>
-                    </div>
-                    
-                    <div class="ingredient-card">
-                        <div class="ingredient-name">Pepper</div>
-                        <button class="remove-button">X</button>
-                    </div>
-
-                    <div class="ingredient-card">
-                        <div class="ingredient-name">Salt</div>
-                        <button class="remove-button">X</button>
-                    </div>
-                    
                     <div class="ingredient-card">
                         <div class="ingredient-name">Pepper</div>
                         <button class="remove-button">X</button>

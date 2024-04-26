@@ -45,6 +45,13 @@ export const GetAllRecipes = async () => {
   return body.allRecipes;
 };
 
+export const GetIngredients = async () => {
+  const result = await fetch(`${url}/ingredients/get`);
+  const body = await result.json();
+
+  return body.allIngredients;
+};
+
 export const AddRecipe = async (recipe) => {
   await fetch(`${url}/recipes/add`, {
     method: "POST",
@@ -52,6 +59,18 @@ export const AddRecipe = async (recipe) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(recipe),
+  });
+};
+
+export const AddIngredient = async (name) => {
+  const nameObj = { name };
+  console.log(nameObj)
+  await fetch(`${url}/ingredients/add`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(nameObj),
   });
 };
 

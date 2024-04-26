@@ -22,15 +22,18 @@ app.MapGet("/newguid", () =>
     return new { guid };
 });
 
-app.MapPost("/ingredients/add", (PantryIngredientRequest ingredient) =>
+app.MapPost("/ingredients/add", (PantryIngredientRequest request) =>
 {
-    throw new NotImplementedException();
+    bool isAdded = storage.AddIngredient(request);
 });
 
 app.MapGet("/ingredients/get", () =>
 {
-    throw new NotImplementedException();
+    var allIngredients = storage.GetPantryIngredientNames();
+    return new { allIngredients };
 });
+
+app.MapGet("/ingredients/clear", () => storage.ResetIngredients());
 
 app.MapGet("/recipes/get", () =>
 {
@@ -40,7 +43,8 @@ app.MapGet("/recipes/get", () =>
 
 app.MapGet("/recipes/clear", () => storage.ResetRecipes());
 
-app.MapPost("/recipes/delete", (RecipeRequest request) => {
+app.MapPost("/recipes/delete", (RecipeRequest request) =>
+{
     var id = request.Id;
     bool isDeleted = storage.DeleteRecipe(id);
 });
@@ -52,7 +56,8 @@ app.MapPost("/recipes/add", (RecipeRequest request) =>
     storage.AddRecipe(recipe);
 });
 
-app.MapPost("/recipes/update", (RecipeRequest request) => {
+app.MapPost("/recipes/update", (RecipeRequest request) =>
+{
     string ingredients = StorageManager.StringifyIngredients(request.Ingredients);
     Recipe recipe = new() { Id = request.Id, Name = request.Name, IsPending = request.IsPending, HasRequiredInfo = request.HasRequiredInfo, Image = request.Image, Ingredients = ingredients, Instructions = request.Instructions };
     storage.UpdateRecipe(recipe);
