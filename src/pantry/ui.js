@@ -1,7 +1,10 @@
 import { AddIngredient, DeleteIngredient, GetIngredients } from "../service.js";
-import { AddToBasket, GetBasketContents, RemoveFromBasket } from "./domain.js";
-
-// TODO: BASKET drag-n-drop and stuff w/ localStorage
+import {
+  AddToBasket,
+  GetBasketContents,
+  RemoveFromBasket,
+  EvaluateInput,
+} from "./domain.js";
 
 const formElement = document.getElementById("add-form");
 const inputElement = document.getElementById("ingredient-input");
@@ -17,23 +20,39 @@ formElement.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   await AddIngredient(inputElement.value);
-  
+
   await RenderPantryContents();
   inputElement.value = "";
 });
+// form: validate button/error each keystroke
+formElement.addEventListener("input", (e) => {
+  const input = inputElement.value;
+
+  const evaluation = EvaluateInput(input);
+  addButton.disabled = !evaluation.isValid;
+  errorElement.textContent = evaluation.message;
+
+  if (evaluation.isValid) {
+    addButton.classList.remove("disabled");
+  } else {
+    addButton.classList.add("disabled");
+  }
+});
 
 const RenderPantryContents = async () => {
-    pantryContents.replaceChildren();
+  pantryContents.replaceChildren();
 
-    const allIngredients = await GetIngredients();
-    allIngredients.forEach(i => pantryContents.appendChild(MakeIngredientCard(i)))
+  const allIngredients = await GetIngredients();
+  allIngredients.forEach((i) =>
+    pantryContents.appendChild(MakeIngredientCard(i))
+  );
 };
 
 const RenderBasketContents = () => {
   basketContents.replaceChildren();
 
   const allIngredients = GetBasketContents();
-  allIngredients.forEach(i => basketContents.appendChild(MakeBasketCard(i)));
+  allIngredients.forEach((i) => basketContents.appendChild(MakeBasketCard(i)));
 };
 
 const MakeIngredientCard = (ingredient) => {
@@ -81,7 +100,6 @@ const MakeBasketCard = (ingredient) => {
 
   // delete ingredient from Basket
   removeButton.addEventListener("click", () => {
-
     RemoveFromBasket(ingredient);
     RenderBasketContents();
   });
@@ -90,12 +108,12 @@ const MakeBasketCard = (ingredient) => {
   card.appendChild(removeButton);
 
   return card;
-}
+};
 
 // DRAG n DROP FEATURE - dropzone
 basketElement.addEventListener("dragover", (e) => {
   e.preventDefault();
-})
+});
 basketElement.addEventListener("drop", (e) => {
   basketElement.classList.remove("highlight-droparea");
   const ingredient = e.dataTransfer.getData("ingredient");
@@ -104,5 +122,8 @@ basketElement.addEventListener("drop", (e) => {
   RenderBasketContents();
 });
 
+// on loadup:
+addButton.disabled = true;
+addButton.classList.add("disabled");
 RenderPantryContents();
 RenderBasketContents();

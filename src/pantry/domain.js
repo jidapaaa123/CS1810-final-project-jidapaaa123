@@ -7,6 +7,18 @@ import {
 // localStorage: [key, value] --> [Items, [string, string, string]]
 const key = "Items";
 
+const invalidCharacters = ["@", "/", ",", "(", ")"];
+
+const hasInvalidChars = (string) => {
+  for (const char of invalidCharacters) {
+    if (string.includes(char)) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
 export const GetBasketContents = () => {
   const contents = GetFromLocalStorage(key);
   return contents == null ? [] : JSON.parse(contents).ingredients;
@@ -34,3 +46,25 @@ export const RemoveFromBasket = (ingredient) => {
 
   UpdateLocalStorage(key, JSON.stringify(obj));
 };
+
+export function EvaluateInput(input) {
+  if (input == undefined || input == null || input.trim() == "") {
+    return {
+      isValid: false,
+      message: "Enter something!",
+    };
+  }
+
+  if (hasInvalidChars(input)) {
+    return {
+      isValid: false,
+      message: "Contains invalid characters",
+    };
+  }
+
+  // no error conditions!
+  return {
+    isValid: true,
+    message: "",
+  };
+}
