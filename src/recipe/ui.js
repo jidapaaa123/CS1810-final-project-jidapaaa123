@@ -21,6 +21,7 @@ const RenderRecipe = async () => {
   const id = GetId();
   const recipe = await GetRecipeById(id);
 
+  document.title = recipe == null ? "Recipe NOT found" : `Recipe - ${recipe.name}`;
   if (recipe == null) {
     mainElement.textContent = `Cannot find recipe with id ${id}`;
     return;

@@ -1,4 +1,10 @@
-import { GuidString, GetAllRecipes, AddRecipe, UpdateRecipe } from "../service.js";
+import {
+  GuidString,
+  GetAllRecipes,
+  AddRecipe,
+  UpdateRecipe,
+  ClearRecipes,
+} from "../service.js";
 import { GetPendingRecipes } from "./domain.js";
 
 const newRecipeButton = document.getElementById("new-recipe-button");
@@ -36,7 +42,7 @@ const MakePendingCard = (recipe) => {
 
   // draft-edit: CLICK EVENT
   editElement.addEventListener("click", (e) => {
-    window.open(`/pages/recipe.html?id=${recipe.id}`, "_blank")
+    window.open(`/pages/recipe.html?id=${recipe.id}`, "_blank");
   });
 
   contentElement.appendChild(nameElement);
@@ -52,11 +58,18 @@ const MakePendingCard = (recipe) => {
   completeButton.textContent = "Mark Complete";
   // complete: CLICK EVENT
   completeButton.addEventListener("click", async (e) => {
-    recipe.isPending = false;
-    await UpdateRecipe(recipe);
+    // check if can complete
+    if (!recipe.hasRequiredInfo) {
+      console.log(
+        `Recipe ${recipe.name} lacks the required information to complete`
+      );
+    } else {
+      recipe.isPending = false;
+      await UpdateRecipe(recipe);
 
-    console.log("Recipe completed!");
-    await RenderPendingRecipes();
+      console.log("Recipe completed!");
+      await RenderPendingRecipes();
+    }
   });
 
   const deleteButton = document.createElement("button");
@@ -83,21 +96,82 @@ newRecipeButton.addEventListener("click", (e) => {
 
 RenderPendingRecipes();
 
-// const recipe = {
-//   id: await GuidString(),
-//   name: "red4 salad",
-//   isPending: false,
-//   hasRequiredInfo: true,
-//   image:
-//     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
-//   ingredients: [
-//     {
-//       name: "unique ingredient",
-//       isOptional: true,
-//       substitutes: ["himalayan salt"],
-//     },
-//   ],
-//   instructions: "Cook it",
-// };
+for (const i in "012") {
+  const recipe = {
+    id: await GuidString(),
+    name: `red${i} salad`,
+    isPending: true,
+    hasRequiredInfo: true,
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
+    ingredients: [
+      {
+        name: "unique ingredient",
+        isOptional: true,
+        substitutes: ["himalayan salt"],
+      },
+    ],
+    instructions: "Cook it",
+  };
 
-// AddRecipe(recipe);
+  const recipe2 = {
+    id: await GuidString(),
+    name: `not doneable green${i} salad`,
+    isPending: true,
+    hasRequiredInfo: false,
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
+    ingredients: [
+      {
+        name: "unique ingredient",
+        isOptional: true,
+        substitutes: ["himalayan salt"],
+      },
+    ],
+    instructions: "Cook it",
+  };
+
+  const recipe3 = {
+    id: await GuidString(),
+    name: `doneable green${i} salad`,
+    isPending: true,
+    hasRequiredInfo: true,
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
+    ingredients: [
+      {
+        name: "unique ingredient",
+        isOptional: true,
+        substitutes: ["himalayan salt"],
+      },
+    ],
+    instructions: "Cook it",
+  };
+
+  // await AddRecipe(recipe);
+  // await AddRecipe(recipe2);
+  // await AddRecipe(recipe3);
+}
+
+const recipe = {
+  id: await GuidString(),
+  name: `red1 salad`,
+  isPending: true,
+  hasRequiredInfo: true,
+  image:
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
+  ingredients: [
+    {
+      name: "unique ingredient",
+      isOptional: true,
+      substitutes: ["himalayan salt"],
+    },
+  ],
+  instructions: "Cook it",
+};
+
+// console.log(recipe)
+// AddRecipe(recipe)
+
+// ClearRecipes()
+console.log(await GetAllRecipes());

@@ -35,7 +35,7 @@ app.MapGet("/ingredients/get", () =>
 app.MapPost("/recipes/add", (RecipeRequest request) =>
 {
     string ingredients = StorageManager.StringifyIngredients(request.Ingredients);
-    Recipe recipe = new() { Id = request.Id, Name = request.Name, IsPending = request.IsPending, Image = request.Image, Ingredients = ingredients, Instructions = request.Instructions };
+    Recipe recipe = new() { Id = request.Id, Name = request.Name, IsPending = request.IsPending, HasRequiredInfo = request.HasRequiredInfo, Image = request.Image, Ingredients = ingredients, Instructions = request.Instructions };
     storage.AddRecipe(recipe);
 });
 app.MapGet("/recipes/get", () =>
@@ -46,7 +46,7 @@ app.MapGet("/recipes/get", () =>
 app.MapGet("/recipes/clear", () => storage.ResetRecipes());
 app.MapPost("/recipes/update", (RecipeRequest request) => {
     string ingredients = StorageManager.StringifyIngredients(request.Ingredients);
-    Recipe recipe = new() { Id = request.Id, Name = request.Name, IsPending = request.IsPending, Image = request.Image, Ingredients = ingredients, Instructions = request.Instructions };
+    Recipe recipe = new() { Id = request.Id, Name = request.Name, IsPending = request.IsPending, HasRequiredInfo = request.HasRequiredInfo, Image = request.Image, Ingredients = ingredients, Instructions = request.Instructions };
     storage.UpdateRecipe(recipe);
 });
 
