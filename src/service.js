@@ -65,6 +65,16 @@ export const UpdateRecipe = async (recipe) => {
   });
 };
 
+export const DeleteRecipe = async (recipe) => {
+  await fetch(`${url}/recipes/delete`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(recipe),
+  });
+};
+
 export const ClearRecipes = async () => {
   await fetch(`${url}/recipes/clear`);
 };

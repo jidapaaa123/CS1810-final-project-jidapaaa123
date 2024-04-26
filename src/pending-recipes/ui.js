@@ -4,6 +4,7 @@ import {
   AddRecipe,
   UpdateRecipe,
   ClearRecipes,
+  DeleteRecipe,
 } from "../service.js";
 import { GetPendingRecipes } from "./domain.js";
 
@@ -75,9 +76,12 @@ const MakePendingCard = (recipe) => {
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("delete-button");
   deleteButton.textContent = "Delete";
-  // TODO - delete: CLICK EVENT
-  deleteButton.addEventListener("click", (e) => {
-    console.log("NotImplemented DELETE recipe");
+  // delete: CLICK EVENT
+  deleteButton.addEventListener("click", async (e) => {
+    await DeleteRecipe(recipe);
+
+    console.log("Deleted recipe!");
+    await RenderPendingRecipes();
   });
 
   bottomSection.appendChild(completeButton);

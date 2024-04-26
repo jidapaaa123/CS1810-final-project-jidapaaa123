@@ -32,18 +32,26 @@ app.MapGet("/ingredients/get", () =>
     throw new NotImplementedException();
 });
 
+app.MapGet("/recipes/get", () =>
+{
+    var allRecipes = storage.GetAllRecipes();
+    return new { allRecipes };
+});
+
+app.MapGet("/recipes/clear", () => storage.ResetRecipes());
+
+app.MapPost("/recipes/delete", (RecipeRequest request) => {
+    var id = request.Id;
+    bool isDeleted = storage.DeleteRecipe(id);
+});
+
 app.MapPost("/recipes/add", (RecipeRequest request) =>
 {
     string ingredients = StorageManager.StringifyIngredients(request.Ingredients);
     Recipe recipe = new() { Id = request.Id, Name = request.Name, IsPending = request.IsPending, HasRequiredInfo = request.HasRequiredInfo, Image = request.Image, Ingredients = ingredients, Instructions = request.Instructions };
     storage.AddRecipe(recipe);
 });
-app.MapGet("/recipes/get", () =>
-{
-    var allRecipes = storage.GetAllRecipes();
-    return new { allRecipes };
-});
-app.MapGet("/recipes/clear", () => storage.ResetRecipes());
+
 app.MapPost("/recipes/update", (RecipeRequest request) => {
     string ingredients = StorageManager.StringifyIngredients(request.Ingredients);
     Recipe recipe = new() { Id = request.Id, Name = request.Name, IsPending = request.IsPending, HasRequiredInfo = request.HasRequiredInfo, Image = request.Image, Ingredients = ingredients, Instructions = request.Instructions };
