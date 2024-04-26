@@ -1,3 +1,4 @@
+import { MakeNewRecipe } from "../recipe/domain.js";
 import {
   GuidString,
   GetAllRecipes,
@@ -93,9 +94,12 @@ const MakePendingCard = (recipe) => {
   return cardElement;
 };
 
-// TODO - NEW RECIPE: button
-newRecipeButton.addEventListener("click", (e) => {
-  console.log("NotImplemented NEW recipe");
+// NEW RECIPE: button
+newRecipeButton.addEventListener("click", async (e) => {
+  const newRecipe = await MakeNewRecipe();
+
+  await AddRecipe(newRecipe);
+  await RenderPendingRecipes();
 });
 
 RenderPendingRecipes();
