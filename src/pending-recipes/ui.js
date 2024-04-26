@@ -74,20 +74,38 @@ const MakePendingCard = (recipe) => {
 
 // TODO - NEW RECIPE: button
 newRecipeButton.addEventListener("click", (e) => {
-    console.log("NotImplemented NEW recipe");
+  console.log("NotImplemented NEW recipe");
 });
 
 RenderPendingRecipes();
 
-// const recipe = {
-//   id: await GuidString(),
-//   name: "lying salad",
-//   isPending: true,
-//   hasRequiredInfo: true,
-//   image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
-//   ingredients: ["salt", "pepper", "paprika"],
-//   instructions: "Cook it",
-// };
-// AddRecipe(recipe);
+const recipe = {
+  id: await GuidString(),
+  name: "lying salad",
+  isPending: false,
+  hasRequiredInfo: true,
+  image:
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
+  ingredients: [
+    {
+      name: "salt",
+      isOptional: true,
+      substitutes: ["himalayan salt"],
+    },
+    {
+      name: "pepper",
+      isOptional: true,
+      substitutes: ["himalayan salt"],
+    },
+    {
+      name: "paprika",
+      isOptional: true,
+      substitutes: ["himalayan salt"],
+    },
+  ],
+  instructions: "Cook it",
+};
+
+AddRecipe(recipe);
 
 GetAllRecipes();

@@ -2,6 +2,8 @@ using System.Text;
 using SQLite;
 namespace Persistence;
 
+public record Ingredient(string Name, bool IsOptional, List<string> Substitutes);
+
 /// <summary>
 /// Not account-based. Only keeps MY data
 /// </summary>
@@ -12,18 +14,17 @@ public class StorageManager
     public StorageManager()
     {
         connection = new SQLiteConnection("storage.db");
-        connection.CreateTable<Ingredient>();
+        connection.CreateTable<PantryIngredient>();
         connection.CreateTable<Recipe>();
     }
 
     /// <summary>
-    /// Used for adding a recipe - List<string> into a single string of ingredients
+    /// Used for adding a recipe - into a single string of ingredients
     /// </summary>
     /// <param name="list"></param>
-    /// <returns></returns>
-    public static string StringifyIngredients(IEnumerable<string>? list)
+    /// <returns>Ex: "soy sauce(salt/fish sauce),@chili,pepper(paprika)" = soy sauce and pepper have substitutes, chili is optional</returns>
+    public static string StringifyIngredients(IEnumerable<Ingredient>? list)
     {
-
         if (list is null || !list.Any())
         {
             return "";
@@ -32,9 +33,25 @@ public class StorageManager
         StringBuilder builder = new();
         foreach (var ingredient in list)
         {
-            builder.Append(ingredient + ",");
+            string current = ingredient.IsOptional ? "@" : "";
+            current += ingredient.Name;
+
+            if (ingredient.Substitutes.Count != 0)
+            {
+                current += "(";
+
+                foreach (var sub in ingredient.Substitutes)
+                {
+                    current += $"{sub}/";
+                }
+
+                current = current.TrimEnd('/');
+                current += ")";
+            }
+
+            builder.Append($"{current},");
         }
-        string str = builder.ToString().TrimEnd(','); // Ex: salt,pepper,paprika instead of salt,pepper,paprika,
+        string str = builder.ToString().TrimEnd(',');
 
         return str;
     }
@@ -57,7 +74,7 @@ public class StorageManager
         connection.Insert(recipe);
     }
 
-    public void AddIngredient(Ingredient ingredient)
+    public void AddIngredient(PantryIngredient ingredient)
     {
         throw new NotImplementedException();
     }
@@ -67,7 +84,7 @@ public class StorageManager
         throw new NotImplementedException();
     }
 
-    public void RemoveIngredient(Ingredient ingredient)
+    public void RemoveIngredient(PantryIngredient ingredient)
     {
         throw new NotImplementedException();
     }
@@ -77,6 +94,10 @@ public class StorageManager
         throw new NotImplementedException();
     }
 
+    /// <summary>
+    /// Format the Ingredients string yourself! Lol
+    /// </summary>
+    /// <returns></returns>
     public IEnumerable<Recipe> GetAllRecipes()
     {
         return connection.Table<Recipe>();
@@ -99,7 +120,7 @@ public class StorageManager
 
     public void ResetIngredients()
     {
-        connection.DeleteAll<Ingredient>();
+        connection.DeleteAll<PantryIngredient>();
     }
 
     public void ResetRecipes()
@@ -114,7 +135,7 @@ public class StorageManager
     /// <returns></returns>
     public bool DeleteIngredient(string name)
     {
-        Ingredient? ingredient = connection.Find<Ingredient>(i => i.Name == name);
+        PantryIngredient? ingredient = connection.Find<PantryIngredient>(i => i.Name == name);
 
         if (ingredient is null)
         {

@@ -17,7 +17,7 @@ public class Recipe
     /// </summary>
     public string? Image { get; set; }
     /// <summary>
-    /// Separated by ","
+    /// "soy sauce(salt/fish sauce),@chili,pepper(paprika)" = soy sauce and pepper have substitutes, chili is optional
     /// </summary>
     public string? Ingredients { get; set; }
     public string? Instructions { get; set; }

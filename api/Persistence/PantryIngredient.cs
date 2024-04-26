@@ -2,7 +2,7 @@ using SQLite;
 
 namespace Persistence;
 
-public class Ingredient
+public class PantryIngredient
 {
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }

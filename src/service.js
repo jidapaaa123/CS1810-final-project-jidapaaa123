@@ -10,14 +10,45 @@ export const GuidString = async () => {
   return body.guid;
 };
 
+// remember: ingredient objects get sent as string from the api
 export const GetAllRecipes = async () => {
   const result = await fetch(`${url}/recipes/get`);
   const body = await result.json();
+
+  for (const recipe of body.allRecipes) {
+    const ingredients = recipe.ingredients.split(',').map((i) => {
+      const optional = i[0] == "@";
+      const parts = i.replace("@", "").split("("); // 2 possible formats: [name, substitutes)] OR [name]
+
+      const name = parts[0];
+      if (parts.length == 1) {
+        // no substitutes
+        return {
+          name: name,
+          isOptional: optional,
+          substitutes: [],
+        };
+      }
+
+      // deal with substitutes! --> substitutes)
+      const substitutes = parts[1].replace(")", ""); // salt/pepper) --> salt/pepper
+
+      return {
+        name: name,
+        isOptional: optional,
+        substitutes: substitutes.split('/'), // salt/pepper --> ["salt", "pepper"]
+      };
+    });
+
+    recipe.ingredients = ingredients;
+  }
 
   return body.allRecipes;
 };
 
 export const AddRecipe = async (recipe) => {
+  console.log(JSON.stringify(recipe));
+
   await fetch(`${url}/recipes/add`, {
     method: "POST",
     headers: {
@@ -29,7 +60,7 @@ export const AddRecipe = async (recipe) => {
 
 export const ClearRecipes = async () => {
   await fetch(`${url}/recipes/clear`);
-}
+};
 
 // external recipe API:
 const FetchRecipe = async (recipe) => {

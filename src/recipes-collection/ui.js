@@ -108,6 +108,7 @@ formElement.addEventListener("submit", async (e) => {
     const allowsOpts = document.getElementById(
       "allow-missing-optionals"
     ).checked;
+    
     // SearchByIngredients(allowsSubs, allowsOpts)
   } else {
     const inputElement = document.getElementById("name-input");
@@ -122,7 +123,6 @@ formElement.addEventListener("submit", async (e) => {
 
 const RenderRecipes = (recipes) => {
   resultsContainer.replaceChildren();
-  console.log(recipes);
   recipes.forEach((r) => resultsContainer.appendChild(MakeRecipeCard(r)));
 };
 
