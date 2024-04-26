@@ -1,11 +1,14 @@
 import { AddIngredient, DeleteIngredient, GetIngredients } from "../service.js";
 
+// TODO: BASKET drag-n-drop and stuff w/ localStorage
+
 const formElement = document.getElementById("add-form");
 const inputElement = document.getElementById("ingredient-input");
 const addButton = document.getElementById("add-button");
 const errorElement = document.getElementById("error-message");
 
 const pantryContents = document.getElementById("pantry-contents");
+const basketElement = document.getElementById("basket");
 const basketContents = document.getElementById("basket-contents");
 
 // form: submission
@@ -29,6 +32,12 @@ const MakeIngredientCard = (ingredient) => {
   const card = document.createElement("div");
   card.classList.add("ingredient-card");
 
+  // drag n drop support - dropped item
+  card.draggable = true;
+  card.addEventListener("dragstart", (e) => {
+    e.dataTransfer.setData("ingredient", ingredient);
+  });
+
   const nameElement = document.createElement("div");
   nameElement.classList.add("ingredient-name");
   nameElement.textContent = ingredient;
@@ -37,7 +46,7 @@ const MakeIngredientCard = (ingredient) => {
   removeButton.classList.add("remove-button");
   removeButton.textContent = "X";
 
-  // TO-DO: delete ingredient
+  // delete ingredient
   removeButton.addEventListener("click", async () => {
     await DeleteIngredient(ingredient);
     await RenderPantryContents();
@@ -48,6 +57,15 @@ const MakeIngredientCard = (ingredient) => {
 
   return card;
 };
+
+// DRAG n DROP FEATURE - dropzone
+basketElement.addEventListener("dragover", (e) => {
+  e.preventDefault();
+})
+basketElement.addEventListener("drop", (e) => {
+  const ingredient = e.dataTransfer.getData("ingredient");
+  console.log(`TO BASKET: ${ingredient}`);
+});
 
 RenderPantryContents();
 console.log(await GetIngredients())
