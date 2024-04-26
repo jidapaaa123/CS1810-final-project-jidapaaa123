@@ -1,4 +1,5 @@
 import { AddIngredient, DeleteIngredient, GetIngredients } from "../service.js";
+import { AddToBasket, GetBasketContents, RemoveFromBasket } from "./domain.js";
 
 // TODO: BASKET drag-n-drop and stuff w/ localStorage
 
@@ -26,6 +27,13 @@ const RenderPantryContents = async () => {
 
     const allIngredients = await GetIngredients();
     allIngredients.forEach(i => pantryContents.appendChild(MakeIngredientCard(i)))
+};
+
+const RenderBasketContents = () => {
+  basketContents.replaceChildren();
+
+  const allIngredients = GetBasketContents();
+  allIngredients.forEach(i => basketContents.appendChild(MakeBasketCard(i)));
 };
 
 const MakeIngredientCard = (ingredient) => {
@@ -58,6 +66,31 @@ const MakeIngredientCard = (ingredient) => {
   return card;
 };
 
+const MakeBasketCard = (ingredient) => {
+  const card = document.createElement("div");
+  card.classList.add("ingredient-card");
+
+  const nameElement = document.createElement("div");
+  nameElement.classList.add("ingredient-name");
+  nameElement.textContent = ingredient;
+
+  const removeButton = document.createElement("button");
+  removeButton.classList.add("remove-button");
+  removeButton.textContent = "X";
+
+  // delete ingredient from Basket
+  removeButton.addEventListener("click", () => {
+
+    RemoveFromBasket(ingredient);
+    RenderBasketContents();
+  });
+
+  card.appendChild(nameElement);
+  card.appendChild(removeButton);
+
+  return card;
+}
+
 // DRAG n DROP FEATURE - dropzone
 basketElement.addEventListener("dragover", (e) => {
   e.preventDefault();
@@ -65,7 +98,10 @@ basketElement.addEventListener("dragover", (e) => {
 basketElement.addEventListener("drop", (e) => {
   const ingredient = e.dataTransfer.getData("ingredient");
   console.log(`TO BASKET: ${ingredient}`);
+
+  AddToBasket(ingredient);
+  RenderBasketContents();
 });
 
 RenderPantryContents();
-console.log(await GetIngredients())
+RenderBasketContents();
