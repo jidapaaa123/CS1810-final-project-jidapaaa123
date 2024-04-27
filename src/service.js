@@ -39,7 +39,8 @@ export const GetAllRecipes = async () => {
       };
     });
 
-    recipe.ingredients = ingredients;
+    // skips empty ingredient caused by JSON-ing Unnamed Recipe's ingredients
+    recipe.ingredients = ingredients.filter((i) => i.name.trim() != "");
   }
 
   return body.allRecipes;
