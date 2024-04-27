@@ -1,10 +1,13 @@
 :root {
+  --main-text-color: rgb(73, 0, 0);
   --card-border: rgb(73, 0, 0);
   --card-background-1: rgba(218, 114, 82, 0.63);
   --card-background-2: rgba(228, 178, 132, 0.63);
   --card-text-color: rgb(163, 29, 29);
 
   --secondary-text-color: rgba(32, 16, 0, 0.678);
+  --almost-white: rgb(223, 205, 189);
+  --hover-brown: rgb(201, 148, 148);
   --click-brown: rgb(43, 8, 8);
 }
 /* defaulting */
@@ -17,6 +20,10 @@
 img {
   min-width: 0;
   width: 100%;
+}
+
+h3 {
+  text-decoration: underline;
 }
 
 button {
@@ -32,6 +39,7 @@ textarea {
 #main-content {
   display: flex;
   flex-direction: column;
+  color: var(--main-text-color);
 
   padding: 3em 0;
 
@@ -231,6 +239,21 @@ textarea {
   margin: auto;
   width: 15em;
   height: 5em;
+  border-radius: 2em;
+  border-color: var(--main-text-color);
+
+  color: inherit;
+  font-family: inherit;
+  background-color: var(--almost-white);
+}
+
+#uncomplete-button:hover {
+  cursor: pointer;
+  background-color: var(--hover-brown);
+}
+
+#uncomplete-button:active {
+  background-color: var(--click-brown);
 }
 
 #finished-recipe-container {
@@ -238,6 +261,8 @@ textarea {
   flex-direction: column;
 
   border-style: solid;
+  border-radius: 2em;
+  background-color: var(--card-background-2);
 
   margin: 2em auto;
   width: 60%;
@@ -249,9 +274,14 @@ textarea {
     min-height: 30em;
     max-height: 30em;
 
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+
     border-bottom-style: solid;
 
     #recipe-image {
+      border-top-left-radius: inherit;
+
       flex: 2;
     }
 
@@ -259,11 +289,14 @@ textarea {
       display: flex;
       flex-direction: column;
 
+      border-top-right-radius: inherit;
+
       margin-left: 4em;
       padding: 3em;
 
       /* DEBUG */
-      background-color: wheat;
+      background-color: var(--card-background-2);
+
       flex: 1;
 
       max-height: 100%;
@@ -276,9 +309,11 @@ textarea {
     flex-direction: column;
 
     padding: 3em 1em;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
 
     /* DEBUG */
-    background-color: rgb(202, 188, 162);
+    background-color: var(--card-background-2);
 
     min-height: 30em;
     max-height: fit-content;
