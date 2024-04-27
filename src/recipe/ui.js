@@ -25,7 +25,8 @@ const RenderPage = async () => {
 
     const description = document.createElement("div");
     description.setAttribute("id", "description");
-    description.textContent = "Sections with * means information is still required in order to mark recipe complete (refreshes every save)";
+    description.textContent =
+      "Sections with * means information is still required in order to mark recipe complete (refreshes every save)";
 
     mainContent.appendChild(h2);
     mainContent.appendChild(description);
@@ -33,9 +34,108 @@ const RenderPage = async () => {
   } else {
     // TODO - render complete recipe
     console.log("Complete recipe NOTImplemented");
+
+    const h2 = document.createElement("h2");
+    h2.setAttribute("id", "heading");
+    h2.textContent = recipe.name;
+
+    const uncompleteButton = document.createElement("button");
+    uncompleteButton.setAttribute("id", "uncomplete-button");
+    uncompleteButton.textContent = "Mark As Incomplete";
+
+    // TODO - uncomplete button
+    uncompleteButton.addEventListener("click", async (e) => {
+      console.log("Uncomplete NOTImplemented");
+    });
+
+    mainContent.appendChild(h2);
+    mainContent.appendChild(uncompleteButton);
+    mainContent.appendChild(MakeRecipeContainer(recipe));
   }
 };
 
+// FINISHED RECIPE FUNCTIONS:
+function MakeRecipeContainer(recipe) {
+    const container = document.createElement("section");
+    container.setAttribute("id", "finished-recipe-container");
+
+    const topHalf = document.createElement("article");
+    topHalf.setAttribute("id", "top-half");
+
+    const image = document.createElement("img");
+    image.setAttribute("id", "recipe-image");
+    image.setAttribute("src", recipe.image);
+
+    topHalf.appendChild(image);
+    topHalf.appendChild(MakeIngredientsContainer(recipe.ingredients));
+
+    // do instructions-half
+    const instructionsHalf = document.createElement("article");
+    instructionsHalf.setAttribute("id", "instructions-half");
+
+    const h3 = document.createElement("h3");
+    h3.setAttribute("id", "instructions-title");
+    h3.textContent = "Instructions";
+
+    const instructions = document.createElement("div");
+    instructions.setAttribute("id", "instructions");
+    instructions.textContent = recipe.instructions;
+
+    instructionsHalf.appendChild(h3);
+    instructionsHalf.appendChild(instructions);
+
+    container.appendChild(topHalf);
+    container.appendChild(instructionsHalf);
+
+    return container;
+}
+
+function MakeIngredientsContainer(ingredients) {
+  const required = ingredients.filter((i) => i.isOptional == false);
+  const optional = ingredients.filter((i) => i.isOptional == true);
+
+  const container = document.createElement("div");
+  container.setAttribute("id", "ingredients-container");
+
+  const requiredTitle = document.createElement("h3");
+  requiredTitle.classList.add("ingredients-title");
+  requiredTitle.textContent = "Required Ingredients";
+
+  const requiredList = document.createElement("ul");
+  requiredList.classList.add("ingredients-list");
+
+  required.forEach(i => {
+    const li = document.createElement("li");
+    li.classList.add("ingredient-bullet");
+    li.textContent = StringifyIngredientDisplay(i);
+
+    requiredList.appendChild(li);
+  });
+
+  const optionalTitle = document.createElement("h3");
+  optionalTitle.classList.add("ingredients-title");
+  optionalTitle.textContent = "Optional Ingredients";
+
+  const optionalList = document.createElement("ul");
+  optionalList.classList.add("ingredients-list");
+
+  optional.forEach(i => {
+    const li = document.createElement("li");
+    li.classList.add("ingredient-bullet");
+    li.textContent = StringifyIngredientDisplay(i);
+
+    optionalList.appendChild(li);
+  });
+
+  container.appendChild(requiredTitle);
+  container.appendChild(requiredList);
+  container.appendChild(optionalTitle);
+  container.appendChild(optionalList);
+
+  return container;
+}
+
+// PENDING RECIPE FUNCTIONS:
 function MakeRecipeForm(recipe) {
   console.log(recipe);
 
