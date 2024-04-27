@@ -3,6 +3,9 @@
   --card-background-1: rgba(218, 114, 82, 0.63);
   --card-background-2: rgba(228, 178, 132, 0.63);
   --card-text-color: rgb(163, 29, 29);
+
+  --secondary-text-color: rgba(32, 16, 0, 0.678);
+  --click-brown: rgb(43, 8, 8);
 }
 /* defaulting */
 * {
@@ -16,9 +19,9 @@ button {
 }
 
 textarea {
-    box-sizing: border-box;
-    padding: 0.5em;
-    font-size: medium;
+  box-sizing: border-box;
+  padding: 0.5em;
+  font-size: medium;
 }
 
 #main-content {
@@ -118,6 +121,15 @@ textarea {
 
             font-family: inherit;
           }
+
+          .remove-button:hover {
+            background-color: var(--secondary-text-color);
+            color: var(--card-background-1);
+          }
+
+          .remove-button:active {
+            background-color: var(--click-brown);
+          }
         }
       }
     }
@@ -179,9 +191,32 @@ textarea {
 }
 
 #instructions-section {
+  #instructions-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
-    #instructions-container {
-        display: flex;
-        flex-direction: column;
-    }
+/* in display-section */
+#image-url {
+  width: 25em;
+}
+
+/* in reset-save-section */
+#actions-container {
+  display: flex;
+  flex-direction: row;
+  margin: 1em auto;
+
+  input {
+    margin: 0 1em;
+    padding: 1em 2em;
+    font-size: larger;
+  }
+}
+
+.missing {
+  color: red;
+  font-size: larger;
+  font-weight: lighter;
 }

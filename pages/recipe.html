@@ -33,7 +33,7 @@
 
   <main id="main-content">
     <h2 id="heading">Recipe Name <span class="emphasize">(Pending)</span></h2>
-    <div id="description">Fields with * means information is still required in order to mark recipe complete</div>
+    <div id="description">Sections with * means information is still required in order to mark recipe complete</div>
 
     <form id="drafting-form">
       <fieldset class="form-section" id="ingredients-section">
@@ -120,11 +120,31 @@
       </fieldset>
 
       <fieldset class="form-section" id="instructions-section">
-        <h3 class="section-title">Instructions</h3>
+        <h3 class="section-title"><span class="missing">*</span>Instructions</h3>
 
         <article id="instructions-container">
           <label for="instructions-text">Recipe Instructions:</label>
           <textarea name="instructions-text" id="instructions-text" cols="15" rows="15"></textarea>
+        </article>
+      </fieldset>
+
+      <fieldset class="form-section" id="display-section">
+        <h3 class="section-title"><span class="missing">*</span>Display</h3>
+
+        <article id="image-container">
+          <label for="image-url">Image URL: </label>
+          <input type="url" name="image-url" id="image-url" />
+        </article>
+      </fieldset>
+
+      <fieldset class="form-section" id="reset-save-section">
+        <h3 class="section-title"><span class="missing">*</span>Reset or Save Recipe</h3>
+        <aside id="clarify">"Reset" will clear all your Ingredients, Instructions, and Image. Only the name and ID are
+          untouched</aside>
+
+        <article id="actions-container">
+          <input type="reset" name="reset-button" id="reset-button" />
+          <input type="submit" name="save-button" id="save-button" value="Save!" />
         </article>
       </fieldset>
     </form>
