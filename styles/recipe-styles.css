@@ -1,0 +1,173 @@
+:root {
+  --card-border: rgb(73, 0, 0);
+  --card-background-1: rgba(218, 114, 82, 0.63);
+  --card-background-2: rgba(228, 178, 132, 0.63);
+  --card-text-color: rgb(163, 29, 29);
+}
+/* defaulting */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+button {
+  border-style: solid;
+}
+
+#main-content {
+  display: flex;
+  flex-direction: column;
+
+  padding: 3em 0;
+
+  max-width: 100vw;
+
+  #heading,
+  #description {
+    margin: auto;
+  }
+}
+
+#drafting-form {
+  margin: auto;
+  width: 60%;
+
+  min-height: 0;
+
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+
+    .section-title {
+      text-decoration: underline;
+    }
+  }
+}
+
+#ingredients-section {
+  min-height: 0;
+  max-height: 35em;
+}
+
+#ingredient-boxes-container {
+  display: flex;
+  min-height: 0;
+
+  #preview-box,
+  #adder-box {
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    margin: 0.5em;
+
+    /* DEBUG: */
+    border-style: groove;
+
+    .box-title {
+      /* DEBUG: */
+      color: blue;
+    }
+  }
+
+  #preview-box {
+    flex: 1;
+    overflow-y: auto;
+
+    .preview-section {
+      margin: 1em;
+
+      .preview-section-title {
+        /* debug */
+        color: green;
+        text-decoration: underline;
+      }
+
+      .preview-section-contents {
+        display: flex;
+        flex-direction: column;
+
+        .ingredient-card {
+          display: flex;
+          background-color: var(--card-background-2);
+          color: var(--card-text-color);
+
+          border-style: solid;
+          border-radius: 0.5em;
+          border-color: var(--card-border);
+
+          padding: 0.3em;
+          margin: 0.5em 0;
+
+          .ingredient-name {
+            flex: 5;
+            margin: 0 0.2em;
+          }
+
+          .remove-button {
+            flex: 1;
+            margin: 0 0.2em;
+            border-radius: 0.5em;
+
+            font-family: inherit;
+          }
+        }
+      }
+    }
+  }
+
+  #adder-box {
+    flex: 2;
+
+    #adder-info {
+      margin: 1em;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+
+      #basic-info-inputs {
+        flex: 1;
+      }
+
+      #advanced-info-inputs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-top: 1em;
+        padding-top: 1em;
+        border-top-style: solid;
+
+        flex: 4;
+
+        #substitutes-section,
+        #add-button-section {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #substitutes-section {
+          flex: 2;
+
+          #substitutes-text {
+            width: 15em;
+          }
+        }
+
+        #add-button-section {
+          justify-content: center;
+
+          flex: 1;
+
+          #add-button {
+            width: 10em;
+            height: 10em;
+          }
+        }
+      }
+    }
+  }
+}
