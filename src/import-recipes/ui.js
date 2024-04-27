@@ -1,4 +1,4 @@
-import { GetImportedRecipes, IsEmpty } from "./domain.js";
+import { GetImportedRecipes, ImportRecipe, IsEmpty } from "./domain.js";
 
 const formElement = document.getElementById("form");
 const nameInputElement = document.getElementById("name-input");
@@ -75,8 +75,9 @@ const MakeRecipeCard = (recipe) => {
     buttonElement.classList.add("recipe-import");
     buttonElement.textContent = "Import";
 
-    buttonElement.addEventListener("click", (e) => {
+    buttonElement.addEventListener("click", async (e) => {
         // add this recipe to pendingRecipes.format it for pendingRecipes
+        await ImportRecipe(recipe);
         console.log(`Added ${recipe.name} to Pending Recipes`);
     });
 
