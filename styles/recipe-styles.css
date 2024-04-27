@@ -5,10 +5,16 @@
   --card-background-2: rgba(228, 178, 132, 0.63);
   --card-text-color: rgb(163, 29, 29);
 
+  --emphasis-color: rgb(163, 0, 0);
   --secondary-text-color: rgba(32, 16, 0, 0.678);
   --almost-white: rgb(223, 205, 189);
   --hover-brown: rgb(201, 148, 148);
   --click-brown: rgb(43, 8, 8);
+  --subsection-emphasis: rgb(31, 35, 66);
+  --box-heading: rgb(36, 85, 36);
+
+  --grey: grey;
+  --greyer: rgb(107, 107, 107);
 }
 /* defaulting */
 * {
@@ -26,8 +32,30 @@ h3 {
   text-decoration: underline;
 }
 
-button {
+button,
+#reset-button,
+#save-button {
   border-style: solid;
+  border-radius: 2em;
+  border-color: var(--main-text-color);
+  font-size: large;
+
+  color: inherit;
+  font-family: inherit;
+  background-color: var(--almost-white);
+}
+
+button:hover,
+#reset-button:hover,
+#save-button:hover {
+  cursor: pointer;
+  background-color: var(--hover-brown);
+}
+
+button:active,
+#reset-button:active,
+#save-button:active {
+  background-color: var(--click-brown);
 }
 
 textarea {
@@ -52,7 +80,7 @@ textarea {
 }
 
 #drafting-form {
-  margin: auto;
+  margin: 1em auto;
   width: 60%;
 
   min-height: 0;
@@ -60,7 +88,14 @@ textarea {
   .form-section {
     display: flex;
     flex-direction: column;
-    padding: 1em;
+    padding: 2em;
+    margin-top: 0.5em;
+
+    background-color: var(--card-background-2);
+
+    border-radius: 2em;
+    border-style: solid;
+    border-color: var(--main-text-color);
 
     .section-title {
       text-decoration: underline;
@@ -77,6 +112,8 @@ textarea {
   display: flex;
   min-height: 0;
 
+  border-radius: inherit;
+
   #preview-box,
   #adder-box {
     display: flex;
@@ -84,12 +121,12 @@ textarea {
     padding: 2em;
     margin: 0.5em;
 
-    /* DEBUG: */
-    border-style: groove;
+    border-style: solid;
+    border-color: var(--main-text-color);
+    border-radius: inherit;
 
     .box-title {
-      /* DEBUG: */
-      color: blue;
+      color: var(--subsection-emphasis);
     }
   }
 
@@ -101,8 +138,7 @@ textarea {
       margin: 1em;
 
       .preview-section-title {
-        /* debug */
-        color: green;
+        color: var(--box-heading);
         text-decoration: underline;
       }
 
@@ -131,17 +167,6 @@ textarea {
             flex: 1;
             margin: 0 0.2em;
             border-radius: 0.5em;
-
-            font-family: inherit;
-          }
-
-          .remove-button:hover {
-            background-color: var(--secondary-text-color);
-            color: var(--card-background-1);
-          }
-
-          .remove-button:active {
-            background-color: var(--click-brown);
           }
         }
       }
@@ -196,6 +221,10 @@ textarea {
           #add-button {
             width: 10em;
             height: 10em;
+          }
+
+          #error-message {
+            color: var(--emphasis-color);
           }
         }
       }
@@ -294,7 +323,6 @@ textarea {
       margin-left: 4em;
       padding: 3em;
 
-      /* DEBUG */
       background-color: var(--card-background-2);
 
       flex: 1;
@@ -312,10 +340,18 @@ textarea {
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
 
-    /* DEBUG */
     background-color: var(--card-background-2);
 
     min-height: 30em;
     max-height: fit-content;
   }
+}
+
+.emphasize {
+  color: var(--emphasis-color);
+}
+
+.disabled {
+  color: var(--greyer);
+  background-color: var(--grey);
 }
