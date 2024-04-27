@@ -1,13 +1,9 @@
-import { MakeNewRecipe } from "../recipe/domain.js";
 import {
-  GuidString,
-  GetAllRecipes,
   AddRecipe,
   UpdateRecipe,
-  ClearRecipes,
   DeleteRecipe,
 } from "../service.js";
-import { GetPendingRecipes } from "./domain.js";
+import { GetPendingRecipes, MakeNewRecipe } from "./domain.js";
 
 const newRecipeButton = document.getElementById("new-recipe-button");
 const draftsContainerElement = document.getElementById("drafts-container");
