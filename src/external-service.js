@@ -1,12 +1,13 @@
 // external recipe API:
-const FetchRecipe = async (recipe) => {
+export const FetchRecipe = async (search) => {
+  const keyword = search.trim().toLowerCase().replaceAll(" ", "+");
   const result = await fetch(
-    `https://www.edamam.com/results/recipes/?search=${recipe
-      .trim()
-      .toLowerCase()}`
+    `https://api.edamam.com/api/recipes/v2?type=public&q=${keyword}&app_id=3bd154e5&app_key=9f5f8f04388714f95a0784569b6bd9f9`
   );
-  const recipes = await result.json();
-  return [...recipes];
+  const body = await result.json();
+
+  const hits = body.hits;
+  return [...hits];
 };
 
 // const recipes = await FetchRecipe("orange chicken");
