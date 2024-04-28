@@ -1,90 +1,30 @@
 :root {
-  --card-background: #f0c8c0;
-  --border-color: rgb(150, 0, 0);
-  --text-color: #881111;
-  --button-background: #ac472e;
-  --hover-button-background: #491e13;
-  --input-background: rgb(255, 245, 245);
-  --input-border-color: rgb(255, 255, 255);
-  --disabled-button: rgb(105, 105, 105);
-  --disabled-button-text: rgb(119, 119, 119);
-  --disabled-button-border: rgb(160, 160, 160);
+  --main-text-color: rgb(73, 0, 0);
+  --card-background-2: rgba(228, 178, 132, 0.63);
+  --emphasis-color: rgb(163, 0, 0);
 }
 
 body {
+  color: var(--main-text-color);
   display: flex;
-  justify-content: center;
-  color: var(--text-color);
+  flex-direction: column;
+  font-size: larger;
 
-  div#log-in-prompt {
-    display: flex;
-    flex-direction: column;
-    height: 35%;
-    max-width: 25em;
+  align-items: center;
 
-    margin-top: auto;
-    margin-bottom: auto;
-    padding: 3em;
+  h2 {
+    margin-top: 4em;
+  }
 
-    border-style: solid;
-    border-radius: 3em;
-    border-color: var(--border-color);
+  div {
+    width: 60%;
+    margin: 4em;
+  }
 
-    background-color: var(--card-background);
-
-    /* margin: auto; */
-    div#title {
-      font-size: xxx-large;
-      text-align: center;
-      text-decoration: underline;
-    }
-
-    form#form {
-      display: flex;
-      flex-direction: column;
-
-      padding-top: 2em;
-
-      input {
-        margin-bottom: 1em;
-        background-color: var(--input-background);
-        border-radius: 0.5em;
-        border-color: var(--input-border-color);
-      }
-    }
-
-    div#buttons-container {
-      display: flex;
-      justify-content: space-between;
-
-      button {
-        width: fit-content;
-        font-family: inherit;
-        color: var(--input-border-color);
-
-        background-color: var(--button-background);
-        border-radius: 0.5em;
-        border-color: var(--input-border-color);
-      }
-
-      button:hover {
-        cursor: pointer;
-        background-color: var(--hover-button-background);
-      }
-
-      button.disabled {
-        background-color: var(--disabled-button);
-        color: var(--disabled-button-text);
-        border-color: var(--disabled-button-border);
-      }
-
-      button.disabled:hover {
-        cursor: default;
-      }
-    }
-
-    div#error-message {
-      font-size: large;
-    }
+  a {
+    color: var(--emphasis-color);
+    padding: 1em;
+    border-radius: 1em;
+    background-color: var(--card-background-2);
   }
 }
