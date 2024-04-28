@@ -1,4 +1,4 @@
-import { SearchByName } from "./domain.js";
+import { SearchByName, SearchByIngredients } from "./domain.js";
 
 // console.log(await CompletedRecipes());
 const nameModeButton = document.getElementById("name-mode-button");
@@ -127,8 +127,13 @@ formElement.addEventListener("submit", async (e) => {
     const allowsOpts = document.getElementById(
       "allow-missing-optionals"
     ).checked;
+    const max = maxElement.value;
 
-    // SearchByIngredients(allowsSubs, allowsOpts)
+    const results = await SearchByIngredients(allowsSubs, allowsOpts);
+    const toRender = max === "" ? results : results.slice(0, max);
+
+    RenderRecipes(toRender);
+
   } else {
     const inputElement = document.getElementById("name-input");
     const searchWord = inputElement.value; // pretty safe assumption?

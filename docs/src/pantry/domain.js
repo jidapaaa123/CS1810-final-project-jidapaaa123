@@ -1,7 +1,6 @@
 import {
   GetFromLocalStorage,
   UpdateLocalStorage,
-  ClearLocalStorage,
 } from "../localStorage-service.js";
 
 // localStorage: [key, value] --> [Items, [string, string, string]]
