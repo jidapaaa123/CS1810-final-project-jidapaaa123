@@ -21,29 +21,29 @@ I'm making a ***recipe tracker***, which can help me track, well, recipes. I can
 > ~~1.3) Get started on Page 2's functionality~~  
 > ~~1.4) Structure data to maybe prepare for an account-based system via my own API later~~  
 ### 2) Week of 4/13
-> 2.1) Page 2: user can create an "instance" of a recipe draft. A unique ID is generated for it.  
-> 2.2) Page 2: user may click on a recipe draft card to edit its contents  
-> 2.3) Page 2: user may "finish" the draft once all requirements are met. User may delete the draft. Once finished, the **full recipe page** turns into the non-Pending version, and that recipe gets sent to the **Recipes Collection** (in memory, it won't render there yet unless searched).  
-> 2.4) Recipe cards have the same design for both Pending and Complete.  
-> 2.5) Page 4: render recipes from external API according to user input  
-> 2.6) Page 4: user can "send to **Recipes Collection**" a recipe  
+> ~~2.1) Page 2: user can create an "instance" of a recipe draft. A unique ID is generated for it.~~  
+> ~~2.2) Page 2: user may click on a recipe draft card to edit its contents~~  
+> ~~2.3) Page 2: user may "finish" the draft once all requirements are met. User may delete the draft. Once finished, the **full recipe page** turns into the non-Pending version, and that recipe gets sent to the **Recipes Collection** (in memory, it won't render there yet unless searched).~~  
+> ~~2.4) Recipe cards have the same design for both Pending and Complete.~~  
+> ~~2.5) Page 4: render recipes from external API according to user input~~  
+> ~~2.6) Page 4: user can "send to **Recipes Collection**" a recipe~~  
 > ~~2.7) Page 4: render placeholder recipes from external API according to user input~~  
 ### 3) Week of 4/20  
 > 3.1) Page 3: filters recipes based on input. Has pagination? User may enter a page number to skip to  
-> 3.2) Page 3: can send a recipe back to the **Pending Recipes** (for editing/removing)  
+> ~~3.2) Page 3: can send a recipe back to the **Pending Recipes** (for editing/removing)~~  
 > 3.3) Page 3: sliding(?) side panel to see the basket  
 > ~~3.4) Page 3: can keep track of how many times a recipe has been "Cooked!"~~  
 > ~~3.5) Page 4: renders the top dishes by times-cooked table~~  
-> 3.6) Page 3: each recipe card can redirect user to the right full-recipe page via **query string**  
+> ~~3.6) Page 3: each recipe card can redirect user to the right full-recipe page via **query string**~~  
 ### 4) Week of 4/27  
-> 4.1) Page 1: user can enter ingredient. Will not allow duplicates (unable to distinguish singular vs. plural nouns, but will ask the user to only use singular versions)  
-> 4.2) Page 1: user drag-and-drop ingredients into basket  
+> ~~4.1) Page 1: user can enter ingredient. Will not allow duplicates (unable to distinguish singular vs. plural nouns, but will ask the user to only use singular versions)~~  
+> ~~4.2) Page 1: user drag-and-drop ingredients into basket~~  
 > ~~4.3) Polish up the account system (if still implementing that) (no I am not: just using the C# API to remember MY data across computers)~~  
 
 ## Requirements fulfilled  
 ### HTML Mastery  
-> form: 3.1), 4.1), 2.2)  
-> img: 2.2)  
+> ~~form: 3.1), 4.1), 2.2)~~  
+> ~~img: 2.2)~~  
 > ~~table: 3.5)~~  
 > ul/ol/dl: 4.2)  
 > ~~figure: 2.2)~~  
@@ -54,25 +54,25 @@ I'm making a ***recipe tracker***, which can help me track, well, recipes. I can
 ### CSS Mastery - should already use most of these by nature...  
 > ~~transitions: 3.3)~~  
 > ~~hover: buttons like in 2.3), 3.2), 3.4)~~  
-> nth child: styling recipe cards  
+> ~~nth child: last nav link on nav bar (no margin-right)~~  
 
 ### Javascript Mastery  
-> map/filter: 3.1)  
-> DOM manipulation: any rendering involved  
-> event listeners: buttons like in 2.3), 3.2), 3.4), or forms like in 2.1)  
-> multiple JS files & code organization: domain, ui, svc (may separate ui files for each page) **tentative**  
-> async await and promises, network requests/ call API: via using external API (if I can't find a good recipe API to use, I might just use PokeAPI for the user to pick a profile picture, or something) **tentative**  
-> query string: 3.6)  
-> localStorage: for persistence? Or Page 4's results. Or 4.2) **tentative**  
+> ~~map/filter: 3.1)~~  
+> ~~DOM manipulation: any rendering involved~~  
+> ~~event listeners: buttons like in 2.3), 3.2), 3.4), or forms like in 2.1)~~  
+> ~~multiple JS files & code organization: domain, ui, svc (separate ui/domain files for each page but shared services.js across all pages)~~  
+> ~~async await and promises, network requests/ call API: via using external API & my own~~   
+> ~~query string: 3.6)~~  
+> ~~localStorage: for persistence of Basket~~  
 
 ### Functional Requirements  
-> multiple pages: see above  
-> filter bar: 3.1)  
-> external API: refer to **Javascript Mastery**  
-> drag and drop: 4.2)  
-> shared page layout: 1.1)  
+> ~~multiple pages: see above~~  
+> ~~filter bar: 3.1)~~  
+> ~~external API: refer to **Javascript Mastery**~~  
+> ~~drag and drop: 4.2)~~  
+> ~~shared page layout: 1.1)~~  
 
-## Hard Things - tentative  
+## Hard Things completed  
 > 15pts: back-end api  
-> 10pts: Use static site generator (hugo, jekyll, etc.) for html and css
+> 10pts: Host your html/css/javascript site on a non github pages PaaS provider (e.g. Azure static web app, **vercel**, etc.)  
 
