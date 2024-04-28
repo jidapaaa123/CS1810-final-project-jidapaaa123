@@ -1,4 +1,14 @@
-import { AddLocalIngredient, DeleteLocalIngredient, EvaluateIngredientInput, GetLocalIngredients, GetRecipe, ResetRecipe, SaveRecipe, StringifyIngredientDisplay, UncompleteRecipe } from "./domain.js";
+import {
+  AddLocalIngredient,
+  DeleteLocalIngredient,
+  EvaluateIngredientInput,
+  GetLocalIngredients,
+  GetRecipe,
+  ResetRecipe,
+  SaveRecipe,
+  StringifyIngredientDisplay,
+  UncompleteRecipe,
+} from "./domain.js";
 
 const mainContent = document.getElementById("main-content");
 
@@ -57,38 +67,38 @@ const RenderPage = async () => {
 
 // FINISHED RECIPE FUNCTIONS:
 function MakeRecipeContainer(recipe) {
-    const container = document.createElement("section");
-    container.setAttribute("id", "finished-recipe-container");
+  const container = document.createElement("section");
+  container.setAttribute("id", "finished-recipe-container");
 
-    const topHalf = document.createElement("article");
-    topHalf.setAttribute("id", "top-half");
+  const topHalf = document.createElement("article");
+  topHalf.setAttribute("id", "top-half");
 
-    const image = document.createElement("img");
-    image.setAttribute("id", "recipe-image");
-    image.setAttribute("src", recipe.image);
+  const image = document.createElement("img");
+  image.setAttribute("id", "recipe-image");
+  image.setAttribute("src", recipe.image);
 
-    topHalf.appendChild(image);
-    topHalf.appendChild(MakeIngredientsContainer(recipe.ingredients));
+  topHalf.appendChild(image);
+  topHalf.appendChild(MakeIngredientsContainer(recipe.ingredients));
 
-    // do instructions-half
-    const instructionsHalf = document.createElement("article");
-    instructionsHalf.setAttribute("id", "instructions-half");
+  // do instructions-half
+  const instructionsHalf = document.createElement("article");
+  instructionsHalf.setAttribute("id", "instructions-half");
 
-    const h3 = document.createElement("h3");
-    h3.setAttribute("id", "instructions-title");
-    h3.textContent = "Instructions";
+  const h3 = document.createElement("h3");
+  h3.setAttribute("id", "instructions-title");
+  h3.textContent = "Instructions";
 
-    const instructions = document.createElement("div");
-    instructions.setAttribute("id", "instructions");
-    instructions.textContent = recipe.instructions;
+  const instructions = document.createElement("div");
+  instructions.setAttribute("id", "instructions");
+  instructions.textContent = recipe.instructions;
 
-    instructionsHalf.appendChild(h3);
-    instructionsHalf.appendChild(instructions);
+  instructionsHalf.appendChild(h3);
+  instructionsHalf.appendChild(instructions);
 
-    container.appendChild(topHalf);
-    container.appendChild(instructionsHalf);
+  container.appendChild(topHalf);
+  container.appendChild(instructionsHalf);
 
-    return container;
+  return container;
 }
 
 function MakeIngredientsContainer(ingredients) {
@@ -105,7 +115,7 @@ function MakeIngredientsContainer(ingredients) {
   const requiredList = document.createElement("ul");
   requiredList.classList.add("ingredients-list");
 
-  required.forEach(i => {
+  required.forEach((i) => {
     const li = document.createElement("li");
     li.classList.add("ingredient-bullet");
     li.textContent = StringifyIngredientDisplay(i);
@@ -120,7 +130,7 @@ function MakeIngredientsContainer(ingredients) {
   const optionalList = document.createElement("ul");
   optionalList.classList.add("ingredients-list");
 
-  optional.forEach(i => {
+  optional.forEach((i) => {
     const li = document.createElement("li");
     li.classList.add("ingredient-bullet");
     li.textContent = StringifyIngredientDisplay(i);
@@ -151,7 +161,9 @@ async function MakeRecipeForm(recipe) {
   // FORM: submission
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    console.log("You seem to have submitted the form... well that does nothing");
+    console.log(
+      "You seem to have submitted the form... well that does nothing"
+    );
   });
 
   return form;
@@ -215,7 +227,7 @@ function MakeIngredientsSection(ingredientObjects) {
   const optionalSectionContents = document.createElement("div");
   optionalSectionContents.classList.add("preview-section-contents");
   optional.forEach((obj) =>
-    reqSectionContents.appendChild(MakeIngredientCard(obj))
+    optionalSectionContents.appendChild(MakeIngredientCard(obj))
   );
 
   // bundle up preview-section
@@ -518,5 +530,4 @@ function MissingAsterisk() {
   return span;
 }
 
-console.log(await GetLocalIngredients())
 RenderPage();

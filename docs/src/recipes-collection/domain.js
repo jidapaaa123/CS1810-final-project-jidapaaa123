@@ -57,7 +57,6 @@ export const SearchByIngredients = async (allowSubs, allowOpts) => {
 };
 
 function satisfyIngredients(availables, requireds, allowSubs) {
-    // debugger;
   // normalize
   availables = availables.map((string) => string.trim().toLowerCase());
 
@@ -74,8 +73,10 @@ function satisfyIngredients(availables, requireds, allowSubs) {
       const substitutes = obj.substitutes;
 
       // if you ALSO don't match any substitutes, you're cooked
-      // otherwise you are good :)
-      return shareSomeString(substitutes, availables);
+      // otherwise you are good for this one:)
+      if (!shareSomeString(substitutes, availables)) {
+        return false;
+      }
     }
   }
 
