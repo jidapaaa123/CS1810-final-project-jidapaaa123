@@ -134,8 +134,6 @@ formElement.addEventListener("submit", async (e) => {
     const searchWord = inputElement.value; // pretty safe assumption?
     const max = maxElement.value;
 
-    console.log(max === "")
-
     const results = await SearchByName(searchWord);
     inputElement.value = "";
     maxElement.value = "";
@@ -155,7 +153,7 @@ const MakeRecipeCard = (recipe) => {
   const card = document.createElement("a");
   card.classList.add("recipe-card");
 
-  card.setAttribute("href", `/pages/recipe.html?id=${recipe.id}`);
+  card.setAttribute("href", `../pages/recipe.html?id=${recipe.id}`);
   card.setAttribute("target", "_blank");
 
   const img = document.createElement("img");

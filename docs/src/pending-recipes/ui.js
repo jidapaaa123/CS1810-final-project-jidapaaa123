@@ -40,7 +40,7 @@ const MakePendingCard = (recipe) => {
 
   // draft-edit: CLICK EVENT
   editElement.addEventListener("click", (e) => {
-    window.open(`/pages/recipe.html?id=${recipe.id}`, "_blank");
+    window.open(`../pages/recipe.html?id=${recipe.id}`, "_blank");
   });
 
   contentElement.appendChild(nameElement);
