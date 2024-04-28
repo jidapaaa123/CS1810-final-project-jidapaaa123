@@ -101,7 +101,7 @@ export const AddLocalIngredient = async (ingredient, subsString, isOptional) => 
   if (localIngredients == null) {
     localIngredients = [];
   }
-  
+
   localIngredients.push({
     name: ingredient,
     isOptional: isOptional,
@@ -144,6 +144,28 @@ export const ResetRecipe = async () => {
   await UpdateRecipe(recipe);
 };
 
+export const SaveRecipe = async (image, instructions) => {
+  const recipe = await GetRecipe();
+
+  const updatedIngredients = [...await GetLocalIngredients()];
+  const hasRequiredInfo = updatedIngredients.length != 0 && !IsEmpty(image) && !IsEmpty(instructions);
+
+  const updated = {
+    id: recipe.id,
+    name: recipe.name,
+    isPending: true, // still pending
+    hasRequiredInfo: hasRequiredInfo,
+    image: image,
+    ingredients: updatedIngredients,
+    instructions: instructions,
+  };
+  
+  await UpdateRecipe(updated);
+}
+
 // export const SaveRecipe = async (recipe) => {
 //   await UpdateRecipe(recipe);
 // };
+const IsEmpty = (string) => {
+  return (string == null || string == undefined || string.trim() == "");
+}

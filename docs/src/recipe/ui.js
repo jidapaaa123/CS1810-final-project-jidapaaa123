@@ -1,4 +1,4 @@
-import { AddLocalIngredient, DeleteLocalIngredient, EvaluateIngredientInput, GetLocalIngredients, GetRecipe, ResetRecipe, StringifyIngredientDisplay } from "./domain.js";
+import { AddLocalIngredient, DeleteLocalIngredient, EvaluateIngredientInput, GetLocalIngredients, GetRecipe, ResetRecipe, SaveRecipe, StringifyIngredientDisplay } from "./domain.js";
 
 const mainContent = document.getElementById("main-content");
 
@@ -249,6 +249,7 @@ function MakeIngredientsSection(ingredientObjects) {
   nameInput.setAttribute("type", "text");
   nameInput.setAttribute("name", "name-input");
   nameInput.setAttribute("id", "name-input");
+  nameInput.setAttribute("autocomplete", "off");
 
   const optionalitySelect = document.createElement("select");
   optionalitySelect.setAttribute("name", "optionality-input");
@@ -490,7 +491,12 @@ function MakeResetSaveSection() {
   });
   save.addEventListener("click", async (e) => {
     e.preventDefault();
-    console.log("SAVE not implemented");
+
+    const imageElement = document.getElementById("image-url");
+    const instructionsElement = document.getElementById("instructions-text");
+
+    await SaveRecipe(imageElement.value, instructionsElement.value);
+    await RenderPage();
   });
 
   container.appendChild(reset);
