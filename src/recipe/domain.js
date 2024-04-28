@@ -1,4 +1,4 @@
-import { GetAllRecipes } from "../service.js";
+import { GetAllRecipes, UpdateRecipe } from "../service.js";
 
 // returns NULL if none is found
 const GetId = () => {
@@ -45,3 +45,13 @@ export const StringifyIngredientDisplay = (ingredient) => {
 
   return string;
 };
+
+export const ResetRecipe = async () => {
+  const recipe = await GetRecipe();
+
+  recipe.ingredients = [];
+  recipe.instructions = "";
+  recipe.image = "";
+
+  await UpdateRecipe(recipe);
+}

@@ -1,4 +1,4 @@
-import { GetRecipe, StringifyIngredientDisplay } from "./domain.js";
+import { GetRecipe, ResetRecipe, StringifyIngredientDisplay } from "./domain.js";
 
 const mainContent = document.getElementById("main-content");
 
@@ -460,11 +460,13 @@ function MakeResetSaveSection() {
   // TO-DO: reset and save
   reset.addEventListener("click", async (e) => {
     e.preventDefault();
-    console.log("RESET/SAVE not implemented");
+
+    await ResetRecipe();
+    await RenderPage();
   });
   save.addEventListener("click", async (e) => {
     e.preventDefault();
-    console.log("RESET/SAVE not implemented");
+    console.log("SAVE not implemented");
   });
 
   container.appendChild(reset);
