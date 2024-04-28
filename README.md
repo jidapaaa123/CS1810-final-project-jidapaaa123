@@ -74,5 +74,6 @@ I'm making a ***recipe tracker***, which can help me track, well, recipes. I can
 
 ## Hard Things completed  
 > 15pts: back-end api  
-> 10pts: Host your html/css/javascript site on a non github pages PaaS provider (e.g. Azure static web app, **vercel**, etc.)  
+> 10pts: Host your html/css/javascript site on a non github pages PaaS provider (e.g. Azure static web app, **vercel**, etc.)
+> 5pts: Host your html/css/javascript site on GitHub pages  
 
