@@ -29,6 +29,20 @@ function StyleBasedOnCurrent() {
 function RenderInputsBasedOnCurrent() {
   formInputsContainer.replaceChildren();
 
+  const paginationContainer = document.createElement("div");
+  paginationContainer.setAttribute("id", "pagination-container");
+
+  const label = document.createElement("label");
+  label.setAttribute("for", "max-items-input");
+  label.textContent = "Maximum results: ";
+
+  const input = document.createElement("input");
+  input.setAttribute("type", "number");
+  input.setAttribute("id", "max-items-input");
+
+  paginationContainer.appendChild(label);
+  paginationContainer.appendChild(input);
+
   if (currentMode == "ingredients") {
     const substitutesButton = document.createElement("input");
     substitutesButton.setAttribute("type", "checkbox");
@@ -53,6 +67,7 @@ function RenderInputsBasedOnCurrent() {
     formInputsContainer.appendChild(substitutesLabel);
     formInputsContainer.appendChild(optionalsButton);
     formInputsContainer.appendChild(optionalsLabel);
+    formInputsContainer.appendChild(paginationContainer);
   } else {
     const label = document.createElement("label");
     label.setAttribute("for", "name-input");
@@ -67,6 +82,7 @@ function RenderInputsBasedOnCurrent() {
     // append
     formInputsContainer.appendChild(label);
     formInputsContainer.appendChild(input);
+    formInputsContainer.appendChild(paginationContainer);
   }
 }
 
@@ -108,7 +124,7 @@ formElement.addEventListener("submit", async (e) => {
     const allowsOpts = document.getElementById(
       "allow-missing-optionals"
     ).checked;
-    
+
     // SearchByIngredients(allowsSubs, allowsOpts)
   } else {
     const inputElement = document.getElementById("name-input");

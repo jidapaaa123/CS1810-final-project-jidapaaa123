@@ -78,6 +78,7 @@ const MakeRecipeCard = (recipe) => {
     buttonElement.addEventListener("click", async (e) => {
         // add this recipe to pendingRecipes.format it for pendingRecipes
         await ImportRecipe(recipe);
+
         console.log(`Added ${recipe.name} to Pending Recipes`);
     });
 
@@ -89,3 +90,4 @@ const MakeRecipeCard = (recipe) => {
 
     return cardElement;
 }
+

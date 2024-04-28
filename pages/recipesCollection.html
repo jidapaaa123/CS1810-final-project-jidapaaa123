@@ -38,13 +38,18 @@
 
     <form id="filter-form">
       <div id="form-inputs">
-        <!-- <label for="name-input">Name: </label>
-        <input id="name-input" name="name-input" type="text" autocomplete="off"/> -->
-        <input type="checkbox" name="allow-substitutes" id="allow-substitutes" />
+        <label for="name-input">Name: </label>
+        <input id="name-input" name="name-input" type="text" autocomplete="off" />
+        <!-- <input type="checkbox" name="allow-substitutes" id="allow-substitutes" />
         <label for="allow-substitutes"> allow substitutes</label>
         <input type="checkbox" name="allow-missing-optionals" id="allow-missing-optionals" />
         <label for="allow-missing-optionals">
-          allow missing optional ingredients</label>
+          allow missing optional ingredients</label> -->
+
+        <div id="pagination-container">
+          <label for="max-items-input">Maximum results: </label>
+          <input type="number" id="max-items-input" />
+        </div>
       </div>
       <input id="submit-button" type="submit" value="Search!" />
     </form>
@@ -58,7 +63,7 @@
         </div>
       </a> -->
 
-      
+
     </section>
   </main>
 </body>

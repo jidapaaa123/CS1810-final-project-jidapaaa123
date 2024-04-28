@@ -80,6 +80,17 @@ main#main-content {
       border-color: var(--card-border);
     }
 
+    #pagination-container {
+      margin: auto;
+      display: flex;
+      justify-content: center;
+
+      #max-items-input {
+        margin-left: 0.5em;
+        width: 3em;
+      }
+    }
+
     #submit-button {
       border-radius: var(--small-border-radius);
       border-style: solid;
