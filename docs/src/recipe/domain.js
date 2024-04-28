@@ -163,6 +163,12 @@ export const SaveRecipe = async (image, instructions) => {
   await UpdateRecipe(updated);
 }
 
+export const UncompleteRecipe = async (recipe) => {
+  recipe.isPending = true;
+
+  await UpdateRecipe(recipe);
+};
+
 // export const SaveRecipe = async (recipe) => {
 //   await UpdateRecipe(recipe);
 // };

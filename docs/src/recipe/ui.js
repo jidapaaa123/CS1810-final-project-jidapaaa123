@@ -1,4 +1,4 @@
-import { AddLocalIngredient, DeleteLocalIngredient, EvaluateIngredientInput, GetLocalIngredients, GetRecipe, ResetRecipe, SaveRecipe, StringifyIngredientDisplay } from "./domain.js";
+import { AddLocalIngredient, DeleteLocalIngredient, EvaluateIngredientInput, GetLocalIngredients, GetRecipe, ResetRecipe, SaveRecipe, StringifyIngredientDisplay, UncompleteRecipe } from "./domain.js";
 
 const mainContent = document.getElementById("main-content");
 
@@ -32,9 +32,6 @@ const RenderPage = async () => {
     mainContent.appendChild(description);
     mainContent.appendChild(await MakeRecipeForm(recipe));
   } else {
-    // TODO - render complete recipe
-    console.log("Complete recipe NOTImplemented");
-
     const h2 = document.createElement("h2");
     h2.setAttribute("id", "heading");
     h2.textContent = recipe.name;
@@ -45,7 +42,11 @@ const RenderPage = async () => {
 
     // TODO - uncomplete button
     uncompleteButton.addEventListener("click", async (e) => {
-      console.log("Uncomplete NOTImplemented");
+      e.preventDefault();
+
+      await UncompleteRecipe(recipe);
+      await RenderPage();
+      // console.log("Uncomplete NOTImplemented");
     });
 
     mainContent.appendChild(h2);
@@ -147,10 +148,10 @@ async function MakeRecipeForm(recipe) {
   form.appendChild(MakeDisplaySection(recipe.image));
   form.appendChild(MakeResetSaveSection());
 
-  // TODO - FORM: submission
+  // FORM: submission
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    console.log("Form submission NOTImplemented");
+    console.log("You seem to have submitted the form... well that does nothing");
   });
 
   return form;
