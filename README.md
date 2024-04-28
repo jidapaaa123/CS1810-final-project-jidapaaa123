@@ -29,7 +29,7 @@ I'm making a ***recipe tracker***, which can help me track, well, recipes. I can
 > ~~2.6) Page 4: user can "send to **Recipes Collection**" a recipe~~  
 > ~~2.7) Page 4: render placeholder recipes from external API according to user input~~  
 ### 3) Week of 4/20  
-> 3.1) Page 3: filters recipes based on input. Has pagination? User may enter a page number to skip to  
+> ~~3.1) Page 3: filters recipes based on input. Has pagination? User may enter a max number of results~~  
 > ~~3.2) Page 3: can send a recipe back to the **Pending Recipes** (for editing/removing)~~  
 > 3.3) Page 3: sliding(?) side panel to see the basket  
 > ~~3.4) Page 3: can keep track of how many times a recipe has been "Cooked!"~~  
