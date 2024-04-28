@@ -240,8 +240,13 @@ textarea {
 }
 
 /* in display-section */
-#image-url {
-  width: 25em;
+#display-section {
+  display: flex;
+  flex-direction: column;
+
+  #image-url {
+    width: 25em;
+  }
 }
 
 /* in reset-save-section */

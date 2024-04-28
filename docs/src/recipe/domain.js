@@ -144,15 +144,15 @@ export const ResetRecipe = async () => {
   await UpdateRecipe(recipe);
 };
 
-export const SaveRecipe = async (image, instructions) => {
+export const SaveRecipe = async (image, instructions, name) => {
   const recipe = await GetRecipe();
 
   const updatedIngredients = [...await GetLocalIngredients()];
-  const hasRequiredInfo = updatedIngredients.length != 0 && !IsEmpty(image) && !IsEmpty(instructions);
+  const hasRequiredInfo = updatedIngredients.length != 0 && !IsEmpty(image) && !IsEmpty(instructions) && !IsEmpty(name);
 
   const updated = {
     id: recipe.id,
-    name: recipe.name,
+    name: name,
     isPending: true, // still pending
     hasRequiredInfo: hasRequiredInfo,
     image: image,

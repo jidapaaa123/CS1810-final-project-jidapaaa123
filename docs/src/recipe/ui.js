@@ -155,7 +155,7 @@ async function MakeRecipeForm(recipe) {
 
   form.appendChild(MakeIngredientsSection(ingredients));
   form.appendChild(MakeInstructionsSection(recipe.instructions));
-  form.appendChild(MakeDisplaySection(recipe.image));
+  form.appendChild(MakeDisplaySection(recipe.image, recipe.name));
   form.appendChild(MakeResetSaveSection());
 
   // FORM: submission
@@ -431,7 +431,7 @@ function MakeInstructionsSection(instructions) {
   return section;
 }
 
-function MakeDisplaySection(image) {
+function MakeDisplaySection(image, name) {
   const isMissing = image == null || image.trim() == "";
 
   const section = document.createElement("fieldset");
@@ -458,8 +458,21 @@ function MakeDisplaySection(image) {
   input.setAttribute("id", "image-url");
   input.value = image;
 
+  const label2 = document.createElement("label");
+  label2.setAttribute("for", "recipe-name");
+  label2.textContent = "Recipe Name: ";
+
+  const input2 = document.createElement("input");
+  input2.setAttribute("type", "text");
+  input2.setAttribute("name", "recipe-name");
+  input2.setAttribute("id", "recipe-name");
+  input2.value = name;
+
   container.appendChild(label);
   container.appendChild(input);
+  container.appendChild(document.createElement("br"));
+  container.appendChild(label2);
+  container.appendChild(input2);
 
   section.appendChild(h3);
   section.appendChild(container);
@@ -506,9 +519,10 @@ function MakeResetSaveSection() {
     e.preventDefault();
 
     const imageElement = document.getElementById("image-url");
+    const nameElement = document.getElementById("recipe-name");
     const instructionsElement = document.getElementById("instructions-text");
 
-    await SaveRecipe(imageElement.value, instructionsElement.value);
+    await SaveRecipe(imageElement.value, instructionsElement.value, nameElement.value);
     await RenderPage();
   });
 
