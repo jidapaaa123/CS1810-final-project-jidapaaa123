@@ -34,11 +34,12 @@ function RenderInputsBasedOnCurrent() {
 
   const label = document.createElement("label");
   label.setAttribute("for", "max-items-input");
-  label.textContent = "Maximum results: ";
+  label.textContent = "Maximum results (if any): ";
 
   const input = document.createElement("input");
   input.setAttribute("type", "number");
   input.setAttribute("id", "max-items-input");
+  input.setAttribute("min", "1");
 
   paginationContainer.appendChild(label);
   paginationContainer.appendChild(input);
@@ -119,6 +120,8 @@ ingredientModeButton.addEventListener("click", (e) => {
 formElement.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  const maxElement = document.getElementById("max-items-input"); 
+
   if (currentMode == "ingredients") {
     const allowsSubs = document.getElementById("allow-substitutes").checked;
     const allowsOpts = document.getElementById(
@@ -129,11 +132,17 @@ formElement.addEventListener("submit", async (e) => {
   } else {
     const inputElement = document.getElementById("name-input");
     const searchWord = inputElement.value; // pretty safe assumption?
+    const max = maxElement.value;
+
+    console.log(max === "")
 
     const results = await SearchByName(searchWord);
     inputElement.value = "";
+    maxElement.value = "";
 
-    RenderRecipes(results);
+    const toRender = max === "" ? results : results.slice(0, max);
+
+    RenderRecipes(toRender);
   }
 });
 
