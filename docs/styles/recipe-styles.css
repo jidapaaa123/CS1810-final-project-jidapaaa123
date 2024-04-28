@@ -131,7 +131,7 @@ textarea {
   }
 
   #preview-box {
-    flex: 1;
+    flex: 2;
     overflow-y: auto;
 
     .preview-section {
@@ -219,8 +219,8 @@ textarea {
           flex: 1;
 
           #add-button {
-            width: 10em;
-            height: 10em;
+            width: 5em;
+            height: 5em;
           }
 
           #error-message {

@@ -1,4 +1,4 @@
-import { GetRecipe, ResetRecipe, StringifyIngredientDisplay } from "./domain.js";
+import { AddLocalIngredient, DeleteLocalIngredient, EvaluateIngredientInput, GetLocalIngredients, GetRecipe, ResetRecipe, StringifyIngredientDisplay } from "./domain.js";
 
 const mainContent = document.getElementById("main-content");
 
@@ -30,7 +30,7 @@ const RenderPage = async () => {
 
     mainContent.appendChild(h2);
     mainContent.appendChild(description);
-    mainContent.appendChild(MakeRecipeForm(recipe));
+    mainContent.appendChild(await MakeRecipeForm(recipe));
   } else {
     // TODO - render complete recipe
     console.log("Complete recipe NOTImplemented");
@@ -136,13 +136,13 @@ function MakeIngredientsContainer(ingredients) {
 }
 
 // PENDING RECIPE FUNCTIONS:
-function MakeRecipeForm(recipe) {
-  console.log(recipe);
-
+async function MakeRecipeForm(recipe) {
   const form = document.createElement("form");
   form.setAttribute("id", "drafting-form");
 
-  form.appendChild(MakeIngredientsSection(recipe.ingredients));
+  const ingredients = await GetLocalIngredients();
+
+  form.appendChild(MakeIngredientsSection(ingredients));
   form.appendChild(MakeInstructionsSection(recipe.instructions));
   form.appendChild(MakeDisplaySection(recipe.image));
   form.appendChild(MakeResetSaveSection());
@@ -298,7 +298,29 @@ function MakeIngredientsSection(ingredientObjects) {
 
   // TO-DO: add button adds ingredient
   addButton.addEventListener("click", async (e) => {
-    console.log("Add Ingredient NOTIMPLEMENTED");
+    e.preventDefault();
+    const nameElement = document.getElementById("name-input");
+    const substitutesElement = document.getElementById("substitutes-text");
+    const optionalityElement = document.getElementById("optionality-input");
+    const errorElement = document.getElementById("error-message");
+
+    const nameInput = nameElement.value.trim().toLowerCase();
+    const substitutesInput = substitutesElement.value.trim().toLowerCase();
+    const optionalityInput = optionalityElement.value;
+
+    const isOptional = optionalityInput == "optional";
+
+    const evaluation = EvaluateIngredientInput(nameInput, substitutesInput);
+    errorElement.textContent = evaluation.message;
+
+    if (evaluation.isValid == true) {
+      AddLocalIngredient(nameInput, substitutesInput, isOptional);
+      nameElement.value = "";
+      optionalityElement.value = "required";
+      substitutesElement.value = "";
+
+      await RenderPage();
+    }
   });
 
   const error = document.createElement("div");
@@ -344,8 +366,11 @@ function MakeIngredientCard(ingredient) {
   removeButton.textContent = "X";
 
   // TO-DO: delete ingredient
-  removeButton.addEventListener("click", async () => {
-    console.log("Remove draft ingredient NOTIMPLEMENTED");
+  removeButton.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    DeleteLocalIngredient(ingredient);
+    await RenderPage();
   });
 
   card.appendChild(nameElement);
@@ -381,7 +406,6 @@ function MakeInstructionsSection(instructions) {
   textarea.setAttribute("cols", "15");
   textarea.setAttribute("rows", "15");
 
-  console.log(instructions);
   textarea.value = instructions;
 
   container.appendChild(label);
@@ -487,4 +511,5 @@ function MissingAsterisk() {
   return span;
 }
 
+console.log(await GetLocalIngredients())
 RenderPage();
