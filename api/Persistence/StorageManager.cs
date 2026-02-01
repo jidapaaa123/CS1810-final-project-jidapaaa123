@@ -13,7 +13,7 @@ public class StorageManager
 
     public StorageManager()
     {
-        connection = new SQLiteConnection("storage.db");
+        connection = new SQLiteConnection("/app/data/storage.db");
         connection.CreateTable<PantryIngredient>();
         connection.CreateTable<Recipe>();
     }

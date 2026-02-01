@@ -1,6 +1,6 @@
 // !!!MY C# API!!!
 // if something goes wrong, !**CHECK this url**!
-const url = "http://localhost:5185";
+const url = "/api";
 
 export const GuidString = async () => {
   const result = await fetch(`${url}/newguid`);
