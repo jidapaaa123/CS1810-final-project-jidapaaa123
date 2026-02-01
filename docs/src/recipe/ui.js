@@ -522,7 +522,8 @@ function MakeResetSaveSection() {
     const nameElement = document.getElementById("recipe-name");
     const instructionsElement = document.getElementById("instructions-text");
 
-    await SaveRecipe(imageElement.value, instructionsElement.value, nameElement.value);
+    const imageFile = imageElement.files[0];
+    await SaveRecipe(imageFile, instructionsElement.value, nameElement.value);
     await RenderPage();
   });
 

@@ -144,23 +144,30 @@ export const ResetRecipe = async () => {
   await UpdateRecipe(recipe);
 };
 
-export const SaveRecipe = async (image, instructions, name) => {
+export const SaveRecipe = async (imageFile, instructions, name) => {
   const recipe = await GetRecipe();
 
   const updatedIngredients = [...await GetLocalIngredients()];
-  const hasRequiredInfo = updatedIngredients.length != 0 && !IsEmpty(image) && !IsEmpty(instructions) && !IsEmpty(name);
+  const hasRequiredInfo = updatedIngredients.length != 0 && 
+  (imageFile || recipe.image) &&
+    !IsEmpty(instructions) && 
+    !IsEmpty(name);
 
-  const updated = {
-    id: recipe.id,
-    name: name,
-    isPending: true, // still pending
-    hasRequiredInfo: hasRequiredInfo,
-    image: image,
-    ingredients: updatedIngredients,
-    instructions: instructions,
-  };
+  const formData = new FormData();
+  formData.append("id", recipe.id);
+  formData.append("name", name);
+  formData.append("isPending", "true"); // still pending
+  formData.append("hasRequiredInfo", hasRequiredInfo.toString());
+  formData.append("instructions", instructions);
+  formData.append("ingredients", updatedIngredients.join(",")); // Flatten array to string for easy transfer
+
+  if (imageFile) {
+      formData.append("imageFile", imageFile);
+  } else {
+      formData.append("image", recipe.image); // Keep the old URL if no new file
+  }
   
-  await UpdateRecipe(updated);
+  await UpdateRecipe(formData);
 }
 
 export const UncompleteRecipe = async (recipe) => {
