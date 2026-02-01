@@ -449,14 +449,14 @@ function MakeDisplaySection(image, name) {
   container.setAttribute("id", "image-container");
 
   const label = document.createElement("label");
-  label.setAttribute("for", "image-url");
-  label.textContent = "Image URL: ";
+  label.setAttribute("for", "image-upload");
+  label.textContent = "Recipe Image: ";
 
   const input = document.createElement("input");
-  input.setAttribute("type", "url");
-  input.setAttribute("name", "image-url");
-  input.setAttribute("id", "image-url");
-  input.value = image;
+  input.setAttribute("type", "file"); 
+  input.setAttribute("name", "image-upload");
+  input.setAttribute("id", "image-upload");
+  input.setAttribute("accept", "image/*"); 
 
   const label2 = document.createElement("label");
   label2.setAttribute("for", "recipe-name");
@@ -518,7 +518,7 @@ function MakeResetSaveSection() {
   save.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    const imageElement = document.getElementById("image-url");
+    const imageElement = document.getElementById("image-upload");
     const nameElement = document.getElementById("recipe-name");
     const instructionsElement = document.getElementById("instructions-text");
 
