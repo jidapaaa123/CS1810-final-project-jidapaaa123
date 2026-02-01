@@ -1,0 +1,16 @@
+services:
+  api:
+    build: ./api
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./api/database:/app/data
+    restart: always
+
+  frontend:
+    build: ./docs
+    ports:
+      - "80:80"  # You can now go to http://localhost in your browser
+    restart: always
+    depends_on:
+      - api
