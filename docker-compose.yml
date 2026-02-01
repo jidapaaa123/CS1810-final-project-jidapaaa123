@@ -3,6 +3,10 @@ services:
     build: ./api
     ports:
       - "8080:8080"
+    environment:
+      - Cloudinary__CloudName=${CLOUDINARY_CLOUD}
+      - Cloudinary__ApiKey=${CLOUDINARY_KEY}
+      - Cloudinary__ApiSecret=${CLOUDINARY_SECRET}
     volumes:
       - ./api/database:/app/data
     restart: always

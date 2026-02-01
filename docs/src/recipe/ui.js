@@ -453,10 +453,20 @@ function MakeDisplaySection(image, name) {
   label.textContent = "Recipe Image: ";
 
   const input = document.createElement("input");
-  input.setAttribute("type", "file"); 
+  input.setAttribute("type", "file");
   input.setAttribute("name", "image-upload");
   input.setAttribute("id", "image-upload");
-  input.setAttribute("accept", "image/*"); 
+  input.setAttribute("accept", "image/*");
+
+  const preview = document.createElement("img");
+  preview.setAttribute("id", "image-preview");
+  preview.style.display = "block";
+  preview.style.width = "200px"; 
+  preview.style.marginTop = "10px";
+  preview.style.borderRadius = "8px";
+  if (image) {
+    preview.src = image;
+  }
 
   const label2 = document.createElement("label");
   label2.setAttribute("for", "recipe-name");
@@ -470,6 +480,7 @@ function MakeDisplaySection(image, name) {
 
   container.appendChild(label);
   container.appendChild(input);
+  container.appendChild(preview);
   container.appendChild(document.createElement("br"));
   container.appendChild(label2);
   container.appendChild(input2);
@@ -522,7 +533,8 @@ function MakeResetSaveSection() {
     const nameElement = document.getElementById("recipe-name");
     const instructionsElement = document.getElementById("instructions-text");
 
-    await SaveRecipe(imageElement.value, instructionsElement.value, nameElement.value);
+    const imageFile = imageElement.files[0];
+    await SaveRecipe(imageFile, instructionsElement.value, nameElement.value);
     await RenderPage();
   });
 

@@ -63,7 +63,17 @@ const MakePendingCard = (recipe) => {
       );
     } else {
       recipe.isPending = false;
-      await UpdateRecipe(recipe);
+
+      const formData = new FormData();
+      formData.append("id", recipe.id);
+      formData.append("name", recipe.name);
+      formData.append("isPending", "false"); // no longer pending
+      formData.append("hasRequiredInfo", recipe.hasRequiredInfo.toString());
+      formData.append("instructions", recipe.instructions);
+      formData.append("ingredients", recipe.ingredients.join(",")); // Flatten array to string for easy transfer
+      formData.append("image", recipe.image); // Keep the old URL if no new file
+
+      await UpdateRecipe(formData);
 
       console.log("Recipe completed!");
       await RenderPendingRecipes();
@@ -153,9 +163,9 @@ RenderPendingRecipes();
 //     instructions: "Cook it",
 //   };
 
-  // await AddRecipe(recipe);
-  // await AddRecipe(recipe2);
-  // await AddRecipe(recipe3);
+// await AddRecipe(recipe);
+// await AddRecipe(recipe2);
+// await AddRecipe(recipe3);
 // }
 
 // const recipe = {

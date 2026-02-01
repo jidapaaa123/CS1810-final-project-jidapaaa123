@@ -75,13 +75,11 @@ export const AddIngredient = async (name) => {
   });
 };
 
-export const UpdateRecipe = async (recipe) => {
+export const UpdateRecipe = async (formData) => {
   await fetch(`${url}/recipes/update`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(recipe),
+    // we are sending FormData, not JSON
+    body: formData,
   });
 };
 
